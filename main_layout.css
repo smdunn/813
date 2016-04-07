@@ -1,0 +1,45 @@
+#banner{
+	background-color:#f499b4;
+	height:50px;
+	width:100%;
+	top:0px;
+	left:0px;
+	position:fixed;
+
+}
+#welcome{
+	position:absolute;
+	right:5px;
+}
+#logo{
+	float:left;
+	position:absolute;
+}
+#sidebar{
+	height:100vh;
+	margin-top:50px;
+	background-color:#F0F8FF;
+	width:20%;
+	position:absolute;
+		text-align:center;
+
+
+}
+#events_button{
+	position:relative;
+
+
+}
+
+#add_family{
+	position:relative;
+
+}
+#families{
+	position:relative;
+
+
+}
+#container{
+
+}
