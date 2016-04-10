@@ -19,15 +19,29 @@
 </div>
 <div id="main">
 	<div id="child">
-	Upcoming Events
-	<table id="events_table">
-		<tr>
-			<td>Date</td>
-			<td>Event</td>
-			<td>Wishlist</td>
+	<table id="events_table" align="center">
+		<tr class="no_border">
+			<th id="upcoming_events" colspan="3"> Upcoming Events</th>
+		</tr>
+		<tr class="border">
+			<th>Date</th>
+			<th>Event</th>
+			<th>Wishlist</th>
+		</tr>
+		<tr class="border">
+				<td class="date"> October 23</td>
+				<td class="event"> Nicole's Birthday </td>
+				<td class="wishlist">
+					<input type="button" id="view_wishlist" value="View"></input>
+				</td>
+
 		</tr>
 		<tr>
-		</tr>
+		 <th class="no_border" colspan="3">
+			<input type="button" id="add_event" value="+ Add Event"></input>
+		</th>
+		</tr> 
+
 	</table>
 </div>
 </div>
