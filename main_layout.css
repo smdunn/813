@@ -33,7 +33,7 @@
     font-size: 24px;
 }
 
-#add_family{
+#btnAddFamily{
     background-color: #f499b4; 
     color: white;
     padding: 0px 10px;
@@ -92,3 +92,17 @@ td.wishlist{
 	text-align: left
 }
 
+.dialog{
+  border:2px solid #666;
+  padding:10px;
+  background:#F0F8FF;
+  position:absolute;
+  display:none;
+  color: #666;
+  height: 200px;
+  width: 300px;
+}
+
+.dialogTitle{
+	font-size: 24px;
+}
