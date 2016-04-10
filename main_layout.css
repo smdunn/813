@@ -58,12 +58,21 @@
 	text-align:center;
 	width:inherit;
 }
+#child{
+	position:relative;
+
+	width:100%;
+}
 #events_table{
-	padding:200px;
+	border: 1px solid black;
+	width:60%;
+	top:50%;
+	left:50%;
 
 }
 #main{
 	position:fixed;
+	overflow:scroll;
 	left:250px;
 	top:50px;
 	width:100%;
