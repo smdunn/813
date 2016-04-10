@@ -20,6 +20,8 @@
 	margin-top:50px;
 	background-color:#F0F8FF;
 	width:20%;
+	text-align: center;
+	position:relative;
 
 
 
@@ -44,6 +46,9 @@
 	text-align:center;
 	width:100%;
 }
-.no_bullets{
-	list-style-type:none;
+.table{
+	text-align:center;
+	width:100%;
+	position:absolute;
 }
+
