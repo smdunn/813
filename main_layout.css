@@ -1,10 +1,28 @@
+#banner{
+	background-color: #f499b4;
+	font-family: Avenir Black, Helvetica, Sans-Serif;
+}
 #sidebar{
 	top: 51px;
-	background-color: #f499b4;
+	left: 0px;
+	background-color: #F0F8FF;
 	padding: 20px;
 	height: 100vh;
 	position: fixed;
-	font-family: Avenir Black;
+	font-family: Avenir Black, Helvetica, Sans-Serif;
+}
+#events_table{
+	top: 60px;
+	position: relative;
+	font-family: Avenir Black, Helvetica, Sans-Serif;
+}
+#logo{
+	font-size: 30px;
+}
+#title{
+	top: 60px;
+	position: relative;
+	font-family: Avenir Black, Helvetica, Sans-Serif;
 }
 
 /*#banner{

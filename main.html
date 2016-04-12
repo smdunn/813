@@ -3,11 +3,46 @@
 <head>
   	<title>GiverGram</title>
   	<link rel="stylesheet" href="main_layout.css"/>
-  	<script type="text/javascript" src="external_js/jquery-1.9.0.min.js"></script>
+  	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="add_family.js"></script>
+	<script type="text/javascript" src="add_event.js"></script>
 </head>
+<body>
 
 <ol id="header"></ol>
-<div id="main">
+
+<div class="container">    
+	<div class="row">
+		<div class="col-sm-3 col-md-2"></div>
+		<div class="col-sm-9 col-md-10"> 
+		<h1 id='title'>Upcoming Events</h1>
+		<table class="table" id="events_table">
+		    <thead>
+		      <tr>
+		        <th>Date</th>
+		        <th>Event</th>
+		        <th>Wishlist</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td>October 23</td>
+		        <td>Nicole's Birthday</td>
+		        <td><button type="button" class="btn btn-default">View</button></td>
+		      </tr>
+		    </tbody>
+		</table>
+	</div>
+	</div>
+</div>
+
+<!-- <div id="main">
 	<div id="child">
 	<table id="events_table" align="center">
 		<tr class="no_border">
@@ -35,9 +70,9 @@
 	</table>
 	
 	</div>
-
+ -->
 	<!-- Add family dialog box-->
-	<div class="dialog" id="dialogAddFamily">
+<!-- 	<div class="dialog" id="dialogAddFamily">
     	<form>
     		<div class="dialogTitle">Add Family</div>
     		<label>Child's Name:</label>
@@ -53,10 +88,10 @@
         		<input type="button" value="Ok" id="btnOK">
       		</div>
 		</form>
-  	</div>
+  	</div> -->
 
   	<!-- Add event dialog box-->
-	<div class="dialog" id="dialogAddEvent">
+	<!-- <div class="dialog" id="dialogAddEvent">
     	<form>
     		<div class="dialogTitle">Add Event</div>
     		<label>Person:</label>
@@ -72,9 +107,9 @@
         		<input type="button" value="Ok" id="addEventOk">
       		</div>
 		</form>
-  	</div>
+  	</div> -->
 
-</div>
+<!-- </div> -->
 
  
 <script type="text/javascript">
