@@ -28,6 +28,7 @@ $('#btnAddFamily').popover({
     html: true,
     title: 'Popover Title<a class="close" href="#");"></a>',
     content: $('#popoverAddFamily').html(),
+});
 
 //ideas: have all family tree info in famtree.html
 // on new family, add to outermost div, add a child tag :
