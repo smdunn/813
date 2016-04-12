@@ -16,14 +16,16 @@
 	position:absolute;
 }
 #sidebar{
-	left:0px;
+	/**left:0px;
 	height:100vh;
 	position:fixed;
 	top:50px;
+		*/
 	background-color:#F0F8FF;
-	width:250px;
+	/**width:250px;*/
 	font-family: Avenir Black, Sans Serif;
 }
+
 #events_button{
     background-color: #f499b4; 
     color: white;
@@ -49,16 +51,25 @@
     border-color: grey;
 
 }
+
+body{
+	padding-top:65px;
+}
 #families{
 	position:relative;
 	font-size:24px;
 }
+
 #container{
-	position:absolute;
 	text-align:center;
+	/**
+	position:absolute;
+
 	width:100%;
+	*/
 
 }
+
 #sidebar_order{
 	/*position:absolute;*/
 	text-align:center;
