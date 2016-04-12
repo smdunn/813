@@ -28,4 +28,9 @@ $('#btnAddFamily').popover({
     html: true,
     title: 'Popover Title<a class="close" href="#");"></a>',
     content: $('#popoverAddFamily').html(),
-});
+
+//ideas: have all family tree info in famtree.html
+// on new family, add to outermost div, add a child tag :
+//     "<li><a href="#" id="#"+child+"">"+child+"</a></li> " 
+//when button on sidebar is clicked, make $("#childname").show() and when leave it, $("#childname").hide()
+//add family member button will do similar

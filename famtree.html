@@ -1,53 +1,60 @@
-<!--
-We will create a family tree using just CSS(3)
-The markup will be simple nested lists
--->
  <!DOCTYPE html>
 <html>
 <head>
   	<title>GiverGram</title>
+  	<link rel="stylesheet" href="main_layout.css"/>
   	<link rel="stylesheet" href="tree.css"/>
-  	<script type="text/javascript" src="external_js/jquery-1.9.0.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </head>
-
-
 </body>
-<div class="tree">
+<ol id="header"></ol>
+
+<div class="container">   
+		<div class="row">
+		<div class="col-sm-3 col-md-2"></div>
+		<div class="col-sm-9 col-md-10"> 
+<div class="tree" id="page">
 	<ul>
 		<li>
-			<a href="#">Parent</a>
+			<a href="#">Child</a>
 			<ul>
 				<li>
-					<a href="#">Child</a>
+					<a href="#">GrandChild</a>
 					<ul>
 						<li>
-							<a href="#">Grand Child</a>
+							<a href="#">Great Grand Child</a>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Child</a>
+					<a href="#">Grand Child</a>
 					<ul>
-						<li><a href="#">Grand Child</a></li>
+						<li><a href="#">Great Grand Child</a></li>
 						<li>
-							<a href="#">Grand Child</a>
-							<ul>
-								<li>
-									<a href="#">Great Grand Child</a>
-								</li>
-								<li>
-									<a href="#">Great Grand Child</a>
-								</li>
-								<li>
-									<a href="#">Great Grand Child</a>
-								</li>
-							</ul>
+							<a href="#">Great Grand Child</a>
 						</li>
-						<li><a href="#">Grand Child</a></li>
+						<li><a href="#">Great Grand Child</a></li>
 					</ul>
 				</li>
 			</ul>
 		</li>
 	</ul>
+
 </div>
+	<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+$( "#header" ).load( "index.html" );
+</script>
 </body>
+</html>
