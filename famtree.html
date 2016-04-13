@@ -10,9 +10,7 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script type='text/javascript' > 
-  	child = ""; 
-	</script>
+
 	<script type="text/javascript" src="add_family_member.js"></script>
 	
 
@@ -78,14 +76,14 @@ $( "#header" ).load( "index.html" );
 			<h4>Name:</h4>
 			<input id='namefammember' type='text' placeholder='Name'/><br><br>
 			<h4>Relationship to your Child</h4>
- 			<div class="dropdown">
-  				<button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  				<div id="myDropdown" class="dropdown-content">
-    				<a href="#">Link 1</a>
-    				<a href="#">Link 2</a>
-    				<a href="#">Link 3</a>
-  				</div>
-			</div> 
+			<div class="dropdown">
+			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true" aria-haspopup="true">Choose Relationship
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">Child</a></li>
+			    <li><a href="#">Spouse</a></li>
+			  </ul>
+			</div>
 			<h4>Birthday:</h4>
 			<input id='monthfammember' type='number' min='1' max='12' step='1' placeholder='Month'/>
 			<input id='dayfammember' type='number' min='1' max='31' step='1' placeholder='Day'/>
