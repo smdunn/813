@@ -7,5 +7,5 @@ $(document).on('click', '#btnOkFam', function(){
     var b_year = $('#yearfam').val();
 
     var person = {name:$('#namefam').val(), birthday:[b_month, b_day, b_year], email:$('#emailfam').val(), wishlist:[]};
-    console.log(person);
+    people.push(person);
 });
