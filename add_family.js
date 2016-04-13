@@ -51,7 +51,9 @@ $(function(){
             $("#"+lchild+"div").show();
             child=lchild;
         });
+
         $("#"+lchild+"div").hide();
+
     });
 });
 
