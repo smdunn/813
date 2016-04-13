@@ -23,13 +23,26 @@
 //         $('#childs_email').val('');
 //     });
 // });
+$(function(){
+    $('#btnAddFamily').popover({
+        html: true,
+        title: 'Popover Title<a class="close" href="#");"></a>',
+        content: $('#popoverAddFamily').html(),
+    });
+    $(document).on('click', '#btnOkFam', function(){
+        $("#btnAddEvent").popover('hide');
+        var child = $('#namefam').val();
+        var month= $('#monthfam').val();
+        var day= $("#dayfam").val();
+        var year= $("#yearfam").val();
+        $('#fams').append('<li><input type="button" class="btn btn-default" id='+child+' value='+child+'></input></li>');
+        $("#"+child+"").click(function(){
+            $("#"+child+"div").show();
+        });
+        $('#treepage').append()
 
-$('#btnAddFamily').popover({
-    html: true,
-    title: 'Popover Title<a class="close" href="#");"></a>',
-    content: $('#popoverAddFamily').html(),
+    });
 });
-
 //ideas: have all family tree info in famtree.html
 // on new family, add to outermost div, add a child tag :
 //     "<li><a href="#" id="#"+child+"">"+child+"</a></li> " 

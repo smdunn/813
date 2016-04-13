@@ -76,7 +76,7 @@ $(function(){
             month = "December";
         }
         var day = $('#inputDayEvent').val();
-        var person = $('#inputPerson').val();
+        var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
         $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
            + '\'s ' + e + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');

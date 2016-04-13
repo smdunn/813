@@ -37,6 +37,8 @@
                 	<li>
                     	<h2 id="families">Families</h2>
                	 	</li>
+               	 	<div id="fams">
+               	 	</div>
                 	<li>
                     	<input type="button" class="btn btn-default popoverThis" id="btnAddFamily" value="+"></input>
                 	</li>
@@ -46,6 +48,20 @@
     </div>
 </body>
 </html>
+	<div id="popoverAddFamily" class="hide">
+		<h2>Add Family</h2><br>
+		<form>
+			<h4>Child's Name:</h4>
+			<input id='namefam' type='text' placeholder='Name'/><br><br>
+			<h4>Child's Birthday:</h4>
+			<input id='monthfam' type='number' min='1' max='12' step='1'/>
+			<input id='dayfam' type='number' min='1' max='31' step='1'/>
+			<input id='yearfam' type='number' min='1900' max='2016' step='1'/><br><br>
+			<h4>Child's Email</h4>
+			<input id='emailfam' type='text' placeholder='Email'/><br><br>
+			<input type="button" class="btn btn-default" id="btnOkFam" value="Okay"></input>
+		</form>
+	</div>
 <!--<div class="container" id="container">
   <div class="row" >
     <div class="col-sm-4" id="sidebar">
