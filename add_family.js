@@ -24,10 +24,35 @@
 //     });
 // });
 
-$('#btnAddFamily').popover({
-    html: true,
-    content: $('#popoverAddFamily').html(),
-    placement: "auto"
+
+$(function(){
+    $('#btnAddFamily').popover({
+        html: true,
+        // title: 'Popover Title<a class="close" href="#");"></a>',
+        content: $('#popoverAddFamily').html(),
+        placement: 'auto'
+    });
+    $(document).on('click', '#btnOkFam', function(){
+        $("#btnAddFamily").popover('hide');
+        var lchild = $('#namefam').val();
+        var month= $('#monthfam').val();
+        var day= $("#dayfam").val();
+        var year= $("#yearfam").val();
+        $('#fams').append('<li><input type="button" class="btn btn-default" id='+lchild+' value='+lchild+'></input></li>');
+
+        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a>"+lchild+"</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+        $("#"+lchild+"").click(function(){
+            len= people.length;
+            for (i=0;i<len;i++){
+                $("#"+people[i].name+"div").hide();
+            }
+            $("#"+lchild+"div").show();
+            child=lchild;
+        });
+
+        $("#"+lchild+"div").hide();
+
+    });
 });
 
 //ideas: have all family tree info in famtree.html

@@ -1,4 +1,6 @@
-// var person= {name:Eileen, events:[],bday:[],wishlist:[],email:weflj@mit.edu,spouse:{name:Tom,bday:[],email,wishlist},kids:[{},{}]}
+// person = {name:Eileen, events:[],bday:[],wishlist:[],email:weflj@mit.edu,spouse:{name:Tom,bday:[],email,wishlist},kids:[{},{}]}
+// date = [month, date, year] --> ['12', '16', '1995']
+
 people = [];
 
 $(document).on('click', '#btnOkFam', function(){
@@ -6,6 +8,14 @@ $(document).on('click', '#btnOkFam', function(){
     var b_day = $('#dayfam').val();
     var b_year = $('#yearfam').val();
 
-    var person = {name:$('#namefam').val(), birthday:[b_month, b_day, b_year], email:$('#emailfam').val(), wishlist:[]};
-    console.log(person);
+    var person = {
+    	name: $('#namefam').val(), 
+    	email: $('#emailfam').val(), 
+    	events: {'Birthday': [b_month, b_day, b_year]}, 
+    	wishlist: [], 
+    	spouse: '', 
+    	children: []
+    };
+    people.push(person);
+    console.log(people);
 });
