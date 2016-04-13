@@ -26,6 +26,7 @@
 
 
 
+
 $(function(){
     $('#btnAddFamily').popover({
         html: true,
@@ -53,6 +54,7 @@ $(function(){
         $("#"+child+"div").hide();
     });
 });
+
 //ideas: have all family tree info in famtree.html
 // on new family, add to outermost div, add a child tag :
 //     "<li><a href="#" id="#"+child+"">"+child+"</a></li> " 
