@@ -15,7 +15,7 @@ $(function(){
         var year= $("#yearfammember").val();
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         if (relationship=="spouse"){
-            $("#"+child+"div").append("<li><a>"+grandchild+"<br>1. Peacoat<br>2. Ovenmitt<br>3. Red Sox Tickets</a></li>");
+            $("#"+child+"div").append("<li><a><h4>"+grandchild+"</h4>1. Peacoat<br>2. Ovenmitt<br>3. Red Sox Tickets</a></li>");
                     len= people.length;
         for (i=0;i++;i<len){
             if (people[i].name==child){
@@ -28,7 +28,7 @@ $(function(){
         }
         }
         else{
-            $('#'+child+"kids").append("<li><a>"+grandchild+"<br>1. Sneakers<br>2. Beats<br>3. Frisbee</a></li>");
+            $('#'+child+"kids").append("<li><a><h4>"+grandchild+"</h4>1. Sneakers<br>2. Beats<br>3. Frisbee</a></li>");
                     len= people.length;
         for (i=0;i++;i<len){
             if (people[i].name==child){
