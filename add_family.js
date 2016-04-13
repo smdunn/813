@@ -52,7 +52,7 @@ $(function(){
             child=child;
         });
         $("#"+child+"div").hide();
-        console.log(child);
+        //console.log(child);
     });
 });
 

@@ -91,5 +91,13 @@ $(function(){
 
 
 	});
+
+    $(document).on('click', '#btnOkFam', function(){
+        var person = people[0];
+        console.log(person.events);
+        console.log(person.events['Birthday']);
+        $('#events_table').append('<tr><td>' + person.events['Birthday'][0] + ' ' + person.events['Birthday'][1] + '</td><td>' + person.name
+           + '\'s ' + 'Birthday' + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
+    });
 });
 
