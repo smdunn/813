@@ -35,9 +35,12 @@ $(function(){
         content: $('#popoverAddEvent').html(),
 	});
 
+    $(document).on("click", ".close" , function(){
+        $(this).parents(".popover").popover('hide');
+    });
 
 	$(document).on('click', '#btnOkEvent', function(){
-		$("#btnAddEvent").popover('hide');
+		//$("#btnAddEvent").popover('hide');
         var month = $('#inputMonthEvent').val();
         if (month == 1) {
             month = "January";
