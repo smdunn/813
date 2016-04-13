@@ -35,10 +35,8 @@ $(function(){
     placement: 'bottom',
     content: $('#popoverAddEvent').html(),
 	});
-
-	$("#btnOkEvent").click(function(){
-		console.log("ok")
-		$("#btnAddEvent").popover('hide');
+    $(document).on('click',"#btnOkEvent",function () {
+        $(".close").popover('hide');
         var month = $('#inputMonthEvent').val();
         var day = $('#inputDayEvent').val();
         var person = $('#inputPerson').val();
@@ -51,5 +49,6 @@ $(function(){
         $('#yearInputEvent').val('');
         $('#event').val('');
 
-	})
+    });
+
 })
