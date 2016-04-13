@@ -29,8 +29,9 @@
 $(function(){
     $('#btnAddFamily').popover({
         html: true,
-        title: 'Popover Title<a class="close" href="#");"></a>',
+        // title: 'Popover Title<a class="close" href="#");"></a>',
         content: $('#popoverAddFamily').html(),
+        placement: 'auto'
     });
     $(document).on('click', '#btnOkFam', function(){
         $("#btnAddEvent").popover('hide');
