@@ -52,6 +52,7 @@ $(function(){
             child=child;
         });
         $("#"+child+"div").hide();
+        console.log(child);
     });
 });
 
