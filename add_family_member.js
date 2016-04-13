@@ -14,7 +14,7 @@ $(function(){
         var day= $("#dayfammember").val();
         var year= $("#yearfammember").val();
         var relationship = $("#relationship").val();
-
+        console.log(child);
         $('#'+child+"div").append("<li><a>"+grandchild+"</a></li>");
 
     });
