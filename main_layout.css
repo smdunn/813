@@ -15,6 +15,7 @@
 	top: 60px;
 	position: relative;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
+	z-index: -1;
 }
 #logo{
 	font-size: 30px;
@@ -23,9 +24,10 @@
 	top: 60px;
 	position: relative;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
+	z-index: -1;
 }
 .popover{
-	width: 400px;
+	width: 300px;
 }
 
 /* Popover Header */
@@ -45,10 +47,9 @@
 #btnAddEvent{
 	position: relative;
 	top: 50px;
-}
-.col-sm-9{
 	z-index: -1;
 }
+
 
 /*#banner{
 	background-color:#f499b4;
