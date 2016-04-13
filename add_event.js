@@ -42,42 +42,7 @@ $(function(){
 	$(document).on('click', '#btnOkEvent', function(){
 		//$("#btnAddEvent").popover('hide');
         var month = $('#inputMonthEvent').val();
-        if (month == 1) {
-            month = "January";
-        }
-        if (month == 2) {
-            month = "February";
-        }
-        if (month == 3) {
-            month = "March";
-        }
-        if (month == 4) {
-            month = "April";
-        }
-        if (month == 5) {
-            month = "May";
-        }
-        if (month == 6) {
-            month = "June";
-        }
-        if (month == 7) {
-            month = "July";
-        }
-        if (month == 8) {
-            month = "August";
-        }
-        if (month == 9) {
-            month = "September";
-        }
-        if (month == 10) {
-            month = "October";
-        }
-        if (month == 11) {
-            month = "November";
-        }
-        if (month == 12) {
-            month = "December";
-        }
+        month = getMonth(month);
         var day = $('#inputDayEvent').val();
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
@@ -94,10 +59,49 @@ $(function(){
 
     $(document).on('click', '#btnOkFam', function(){
         var person = people[0];
-        console.log(person.events);
-        console.log(person.events['Birthday']);
-        $('#events_table').append('<tr><td>' + person.events['Birthday'][0] + ' ' + person.events['Birthday'][1] + '</td><td>' + person.name
+        console.log(getMonth(person.events['Birthday'][0]));
+        $('#events_table').append('<tr><td>' + getMonth(person.events['Birthday'][0]) + ' ' + person.events['Birthday'][1] + '</td><td>' + person.name
            + '\'s ' + 'Birthday' + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
     });
 });
+
+function getMonth(month) {
+    if (month == 1) {
+        month = "January";
+    }
+    if (month == 2) {
+        month = "February";
+    }
+    if (month == 3) {
+        month = "March";
+    }
+    if (month == 4) {
+        month = "April";
+    }
+    if (month == 5) {
+        month = "May";
+    }
+    if (month == 6) {
+        month = "June";
+    }
+    if (month == 7) {
+        month = "July";
+    }
+    if (month == 8) {
+        month = "August";
+    }
+    if (month == 9) {
+        month = "September";
+    }
+    if (month == 10) {
+        month = "October";
+    }
+    if (month == 11) {
+        month = "November";
+    }
+    if (month == 12) {
+        month = "December";
+    }
+    return month;
+}
 
