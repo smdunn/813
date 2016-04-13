@@ -78,14 +78,20 @@ $( "#header" ).load( "index.html" );
 			<h4>Name:</h4>
 			<input id='namefammember' type='text' placeholder='Name'/><br><br>
 			<h4>Relationship to your Child</h4>
-			<div class="dropdown">
+			<div class="radio">
+  				<label><input type="radio" name="optradio">Child</label>
+			</div>
+			<div class="radio">
+  				<label><input type="radio" name="optradio">Spouse</label>
+			</div>		
+<!-- 			<div class="dropdown">
 			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true" aria-haspopup="true">Choose Relationship
 			  <span class="caret"></span></button>
-			  <ul class="dropdown-menu">
+			  <ul class="dropdown-menu" role="menu">
 			    <li><a href="#">Child</a></li>
 			    <li><a href="#">Spouse</a></li>
 			  </ul>
-			</div>
+			</div> -->
 			<h4>Birthday:</h4>
 			<input id='monthfammember' type='number' min='1' max='12' step='1' placeholder='Month'/>
 			<input id='dayfammember' type='number' min='1' max='31' step='1' placeholder='Day'/>
