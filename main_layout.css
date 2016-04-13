@@ -2,6 +2,7 @@
 	background-color: #f499b4;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
 }
+
 #sidebar{
 	top: 51px;
 	left: 0px;
@@ -36,7 +37,6 @@
     text-align:center;
     font-family: Avenir Black, Helvetica, Sans-Serif;
 }
-
 /* Popover Body */
 .popover-content {
     background-color: #F0F8FF;
@@ -47,7 +47,7 @@
 #btnAddEvent{
 	position: relative;
 	top: 50px;
-	z-index: -1;
+	z-index: 0;
 }
 
 
