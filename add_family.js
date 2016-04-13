@@ -23,6 +23,9 @@
 //         $('#childs_email').val('');
 //     });
 // });
+
+
+
 $(function(){
     $('#btnAddFamily').popover({
         html: true,
@@ -36,11 +39,16 @@ $(function(){
         var day= $("#dayfam").val();
         var year= $("#yearfam").val();
         $('#fams').append('<li><input type="button" class="btn btn-default" id='+child+' value='+child+'></input></li>');
+
+        $('#childappend').append("<div id='"+child+"div'><li><a>"+child+"</a><ul><div id='"+child+"kids'></div></ul></li></div>");
         $("#"+child+"").click(function(){
+            len= people.length;
+            for (i=0;i<len;i++){
+                $("#"+people[i].name+"div").hide();
+            }
             $("#"+child+"div").show();
         });
-        $('#treepage').append()
-
+        $("#"+child+"div").hide();
     });
 });
 //ideas: have all family tree info in famtree.html
