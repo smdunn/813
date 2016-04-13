@@ -42,7 +42,7 @@ $(function(){
         var year= $("#yearfam").val();
         $('#fams').append('<li><input type="button" class="btn btn-default" id='+child+' value='+child+'></input></li>');
 
-        $('#childappend').append("<ul><div id='"+child+"div' position='absolute'><li><a>"+child+"</a><ul><div id='"+child+"kids'></div></ul></li></div></ul>");
+        $('#childappend').append("<ul><div id='"+child+"div'><li><a>"+child+"</a><ul><div id='"+child+"kids'></div></ul></li></div></ul>");
         $("#"+child+"").click(function(){
             len= people.length;
             for (i=0;i<len;i++){
