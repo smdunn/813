@@ -36,23 +36,22 @@ $(function(){
     });
     $(document).on('click', '#btnOkFam', function(){
         $("#btnAddFamily").popover('hide');
-        var child = $('#namefam').val();
+        var lchild = $('#namefam').val();
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
         var year= $("#yearfam").val();
-        $('#fams').append('<li><input type="button" class="btn btn-default" id='+child+' value='+child+'></input></li>');
+        $('#fams').append('<li><input type="button" class="btn btn-default" id='+lchild+' value='+lchild+'></input></li>');
 
-        $('#childappend').append("<ul><div id='"+child+"div'><li><a>"+child+"</a><ul><div id='"+child+"kids'></div></ul></li></div></ul>");
-        $("#"+child+"").click(function(){
+        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a>"+lchild+"</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+        $("#"+lchild+"").click(function(){
             len= people.length;
             for (i=0;i<len;i++){
                 $("#"+people[i].name+"div").hide();
             }
-            $("#"+child+"div").show();
-            child=child;
+            $("#"+lchild+"div").show();
+            child=lchild;
         });
-        $("#"+child+"div").hide();
-        console.log(child);
+        $("#"+lchild+"div").hide();
     });
 });
 
