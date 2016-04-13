@@ -30,7 +30,12 @@
 .popover{
 	width: 300px;
 }
-
+.bottomRight{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+}
 /* Popover Header */
 .popover-title {
     color:black; 

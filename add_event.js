@@ -58,9 +58,10 @@ $(function(){
 	});
 
     $(document).on('click', '#btnOkFam', function(){
-        var person = people[0];
-        console.log(getMonth(person.events['Birthday'][0]));
-        $('#events_table').append('<tr><td>' + getMonth(person.events['Birthday'][0]) + ' ' + person.events['Birthday'][1] + '</td><td>' + person.name
+        var person = $("#namefam").val();
+        var month= $('#monthfam').val();
+        var day= $("#dayfam").val();
+                $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
            + '\'s ' + 'Birthday' + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
     });
 });
