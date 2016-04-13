@@ -3,91 +3,134 @@
 <head>
   	<title>GiverGram</title>
   	<link rel="stylesheet" href="main_layout.css"/>
-	<!-- Latest compiled and minified CSS -->
+  	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-	<!-- jQuery library -->
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
-
+  	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<script type='text/javascript'> 
-  			child = ""; 
-		</script>
-	<script type="text/javascript" src="add_family.js"></script>
-	<!--<script type="text/javascript" src="add_event.js"></script>-->
-	<script type="text/javascript" src="people.js"></script>
-</head>
 
+	<!--<script type="text/javascript" src="add_family.js"></script>-->
+	<script type="text/javascript" src="add_event.js"></script>
+	<script type="text/javascript" src="people.js"></script>
+
+</head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top" id='banner'>
-  		<div class="container-fluid">
-    		<div class="navbar-header">
-      			<a id='logo' class="navbar-brand" href="#">GiverGram</a>
-    		</div>
-    		<ul class="nav navbar-nav navbar-right">
-      			<li class="navbar-brand">Welcome Eileen!</a></li>
-      			<li></li>
-    		</ul>
-  		</div>
-	</nav>
-	<div class="container-fluid" >
-		<div class="row">
-        	<div id="sidebar" class="col-sm-3 col-md-2">
-            	<ul class="nav nav-sidebar">
-                	<li class="sidebar-brand">
-                    	<input type="button" class="btn btn-default" id="events_button" value="Upcoming Events"></input>
-                	</li>
-                	<li>
-                    	<h2 id="families">Families</h2>
-               	 	</li>
-               	 	<div id="fams">
-               	 	</div>
-                	<li>
-                    	<input type="button" class="btn btn-default popoverThis" id="btnAddFamily" value="+"></input>
-                	</li>
-            	</ul>
-        	</div>
-    	</div>
-    </div>
-</body>
-</html>
-	<div id="popoverAddFamily" class="hide">
-		<h2>Add Family</h2><br>
+
+<ol id="header"></ol>
+
+<div class="container">    
+	<div class="row">
+		<div class="col-sm-3 col-md-2"></div>
+		<div class="col-sm-9 col-md-10"> 
+		<h1 id='title'>Upcoming Events</h1>
+		<table class="table" id="events_table">
+		    <thead>
+		      <tr>
+		        <th>Date</th>
+		        <th>Event</th>
+		        <th>Wishlist</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td>October 23</td>
+		        <td>Nicole's Birthday</td>
+		        <td><button type="button" class="btn btn-default">View</button></td>
+		      </tr>
+		    </tbody>
+		</table>
+		<input type="button" class="btn btn-default" id="btnAddEvent" value="Add Event" ></input>
+	</div>
+	<div id="popoverAddEvent" class="hide">
+		<h2>Add Event</h2><br>
 		<form>
-			<h4>Child's Name:</h4>
-			<input id='namefam' type='text' placeholder='Name'/><br><br>
-			<h4>Child's Birthday:</h4>
-			<input id='monthfam' type='number' min='1' max='12' step='1' placeholder='Month'/>
-			<input id='dayfam' type='number' min='1' max='31' step='1' placeholder='Day'/>
-			<input id='yearfam' type='number' min='1900' max='2016' step='1' placeholder='Year'/><br><br>
-			<h4>Child's Email</h4>
-			<input id='emailfam' type='text' placeholder='Email'/><br><br>
-			<input type="button" class="btn btn-default" id="btnOkFam" value="Okay"></input>
+			<h4>Person:</h4>
+			<input id='inputPerson' type='text' placeholder='Name'/><br><br>
+			<h4>Event</h4>
+			<input id='inputEvent' type='text' placeholder='Event Name'/><br><br>
+			<h4>Event Date:</h4>
+			<input id='inputMonthEvent' type='number' min='1' max='12' step='1' placeholder='Month'/>
+			<input id='inputDayEvent' type='number' min='1' max='31' step='1'placeholder='Day'/>
+			<input id='inputYearEvent' type='number' min='1900' max='2016' step='1'placeholder='Year'/><br><br>
+			<input type="button" class="btn btn-default" id="btnOkEvent" value="Okay"></input>
 		</form>
 	</div>
-<!--<div class="container" id="container">
-  <div class="row" >
-    <div class="col-sm-4" id="sidebar">
-    	<table id="sidebar_order">
-		<tr><td><input type="button" class="btn btn-default" id="events_button" value="Upcoming Events"></input></td></tr>
-		<tr><td><label id="families">Families</label></td></tr>
-	</table>
-	<input type="button" class="btn btn-default" id="btnAddFamily" value="+"></input>
-    </div>
-   </div>
-</div>-->
-<!--<div id="banner"><div id="logo">GiverGram</div><div id="welcome">Welcome Eileen!</div></div>
-<div id="container" class="row">
-<div id="sidebar" class="col-sm-4">
-	<table id="sidebar_order">
-		<tr><td><input type="button" id="events_button" value="Upcoming Events"></input></td></tr>
-		<tr><td><label id="families">Families</label></td></tr>
-	</table>
-	<input type="button" id="btnAddFamily" value="+"></input>
-</div> 
+	</div>
 </div>
 
+<!-- <div id="main">
+	<div id="child">
+	<table id="events_table" align="center">
+		<tr class="no_border">
+			<th id="upcoming_events" colspan="3"> Upcoming Events</th>
+		</tr>
+		<tr class="border">
+			<th>Date</th>
+			<th>Event</th>
+			<th>Wishlist</th>
+		</tr>
+		<tr class="border">
+				<td class="date"> October 23</td>
+				<td class="event"> Nicole's Birthday </td>
+				<td class="wishlist">
+					<input type="button" id="view_wishlist" value="View"></input>
+				</td>
 
+		</tr>
+		<tr class="add_event_row">
+		 <th class="no_border" colspan="3">
+			<input type="button" id="add_event" value="+ Add Event"></input>
+		</th>
+		</tr> 
+
+	</table>
+	
+	</div>
+ -->
+	<!-- Add family dialog box-->
+<!-- 	<div class="dialog" id="dialogAddFamily">
+    	<form>
+    		<div class="dialogTitle">Add Family</div>
+    		<label>Child's Name:</label>
+    		<input type='text' id='childs_name' placeholder='Name'/><br>
+    		<label>Child's Birthday:</label>
+    		<input id="monthInputFam" type="number" min="1" max="12" step="1" placeholder='1'/>
+    		<input id="dayInputFam" type="number" min="1" max="31" step="1" placeholder='1'/>
+    		<input id="yearInputFam" type="number" min="1900" max="2016" step="1" placeholder='1900'/><br>
+    		<label>Child's Email:</label>
+    		<input type='text' id='childs_email' placeholder='Email'/>
+      		<div align="center">
+      			<input type='button' value='Cancel' id='btnCancel'>
+        		<input type="button" value="Ok" id="btnOK">
+      		</div>
+		</form>
+  	</div> -->
+
+  	<!-- Add event dialog box-->
+	<!-- <div class="dialog" id="dialogAddEvent">
+    	<form>
+    		<div class="dialogTitle">Add Event</div>
+    		<label>Person:</label>
+    		<input type='text' id='person' placeholder='Name'/><br>
+    		<label>Event:</label>
+    		<input type='text' id='event' placeholder='Event'/><br>
+    		<label>Date:</label>
+    		<input id="monthInputEvent" type="number" min="1" max="12" step="1" placeholder='1'/>
+    		<input id="dayInputEvent" type="number" min="1" max="31" step="1" placeholder='1'/>
+    		<input id="yearInputEvent" type="number" min="1900" max="2016" step="1" placeholder='1900'/><br>
+      		<div align="center">
+      			<input type='button' value='Cancel' id='addEventCancel'>
+        		<input type="button" value="Ok" id="addEventOk">
+      		</div>
+		</form>
+  	</div> -->
+
+<!-- </div> -->
+
+ 
+<script type="text/javascript">
+$( "#header" ).load( "header.html" );
+</script>
 </body>
 </html>
