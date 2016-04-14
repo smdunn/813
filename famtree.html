@@ -19,29 +19,19 @@
 <ol id="header"></ol>
 
 <div class="container">   
-		<div class="row">
-		<div class="col-sm-3 col-md-2"></div>
+	<div class="row">
+		<div class="col-sm-3 col-md-2"></div>		
 		<div class="col-sm-9 col-md-10"> 
-<div class="tree" id="treepage">
- 		<div id="childappend"> 
+			<div class="tree" id="treepage">
+ 				<div id="childappend"></div>
+				<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
+
+			</div>
+		</div>
 	</div>
 
 
-	<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
-
-</div>
-
-</div>
-</div>
-
-
-<script type="text/javascript">
-$( "#header" ).load( "header.html" );
-</script>
-</body>
-</html>
-
-<div id="popoverAddFamilyMember" class="hide">
+	<div id="popoverAddFamilyMember" class="hide">
 		<h2>Add Family Member</h2><br>
 		<form>
 			<h4>Name:</h4>
@@ -70,4 +60,11 @@ $( "#header" ).load( "header.html" );
 			<input type="button" class="btn btn-default" id="btnOkFamMember" value="Okay"></input>
 		</form>
 	</div>
+</div>
+
+<script type="text/javascript">
+$( "#header" ).load( "header.html" );
+</script>
+</body>
+</html>
 

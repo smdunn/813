@@ -54,7 +54,10 @@
 	top: 50px;
 	z-index: 0;
 }
-
+#btnAddFamilyMember{
+	position: relative;
+	float: right;
+}
 
 
 
