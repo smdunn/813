@@ -47,12 +47,22 @@ $(function(){
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
         $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-           + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
+           + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
         $('#person').val('');
-        $("#"+person+"list").hide();
+        //$("#"+person+"list").css("visibility","hidden");
         $("#btn"+person+"view").click(function(e){
-            e.stopPropagation();
-            $("#"+person+"list").toggle();
+            //e.stopPropagation();
+            
+            if ($("#"+person+"list").hasClass("out")){
+                $("#"+person+"list").addClass("in");
+                $("#"+person+"list").removeClass("out");
+                $("#btn"+person+"view").val("Hide");
+            }
+            else{
+                $("#"+person+"list").addClass("out");
+                $("#"+person+"list").removeClass("in");
+                $("#btn"+person+"view").val("View");
+            }
         });
         $('#monthInputEvent').val('');
         $('#dayInputEvent').val('');
@@ -67,10 +77,21 @@ $(function(){
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
         $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
-           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
-        $("#btn"+person+"view").click(function(){
-            console.log("click");
-        })
+           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
+        $("#btn"+person+"view").click(function(e){
+            //e.stopPropagation();
+            
+            if ($("#"+person+"list").hasClass("out")){
+                $("#"+person+"list").addClass("in");
+                $("#"+person+"list").removeClass("out");
+                $("#btn"+person+"view").val("Hide");
+            }
+            else{
+                $("#"+person+"list").addClass("out");
+                $("#"+person+"list").removeClass("in");
+                $("#btn"+person+"view").val("View");
+            }
+        });
     });
 });
 

@@ -37,7 +37,13 @@
 		    </thead>
 		    
 		</table>
-		<input type="button" class="btn btn-default" id="btnAddEvent" value="Add Event" ></input>
+		<table>
+			<tr>
+				<td>
+		<input type="button" class="btn btn-default" id="btnAddEvent" value="Add Event" position="relative" zIndex="0" ></input>
+		</td>
+	</tr>
+		</table>
 	</div>
 	<div id="famDiv" class="bottomRight hide">
 		<div class="tree" id="treepage">
@@ -49,7 +55,7 @@
 
 </div>
 	</div>
-	<div id="popoverAddEvent" class="hide">
+	<div id="popoverAddEvent" class="hide" >
 		<h2>Add Event</h2><br>
 		<form>
 			<h4>Person:</h4>
@@ -70,7 +76,7 @@
 
 	function handleClick(evt) {
   		var node = evt.target || evt.srcElement;
-  		
+
   		
 	}
 
