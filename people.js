@@ -12,10 +12,11 @@ $(document).on('click', '#btnOkFam', function(){
     	name: $('#namefam').val(), 
     	email: $('#emailfam').val(), 
     	events: {'Birthday': [b_month, b_day, b_year]}, 
-    	wishlist: [], 
+    	wishlist: ["Patagonia Fleece","Rainboots","Headphones"], 
     	spouse: '', 
     	children: []
     };
+
     people.push(person);
-    console.log(people);
+
 });

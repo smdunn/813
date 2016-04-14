@@ -61,7 +61,7 @@ $(function(){
         var person = $("#namefam").val();
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
-                $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
+        $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
            + '\'s ' + 'Birthday' + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
     });
 });
