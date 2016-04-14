@@ -71,7 +71,17 @@
 	position: relative;
 	float: right;
 }
-
+.fam_btn{
+	position: relative;
+	bottom:10px;
+}
+#families{
+	position: relative;
+	bottom: 10px;
+}
+#events_button{
+	font-size: 21px;
+}
 
 
 /*#banner{

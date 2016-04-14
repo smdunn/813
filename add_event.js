@@ -73,6 +73,7 @@ $(function(){
             console.log("click");
         })
     });
+    // when family member is added add their birthday to upcoming events
     $(document).on('click', '#btnOkFamMember', function(){
         var person = $("#namefammember").val();
         var month= $('#monthfammember').val();

@@ -41,7 +41,7 @@ $(function(){
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
         var year= $("#yearfam").val();
-        $('#fams').append('<li><input type="button" class="btn btn-default" id='+lchild+' value='+lchild+'></input></li>');
+        $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
 
         $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h4>"+lchild+"</h4>1. Patagonia Fleece<br>2. Rainboots<br>3. Headphones</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
         $("#famDiv").removeClass("hide");
