@@ -47,8 +47,13 @@ $(function(){
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
         $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-           + '\'s ' + e + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
+           + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
         $('#person').val('');
+        $("#"+person+"list").hide();
+        $("#btn"+person+"view").click(function(e){
+            e.stopPropagation();
+            $("#"+person+"list").toggle();
+        });
         $('#monthInputEvent').val('');
         $('#dayInputEvent').val('');
         $('#yearInputEvent').val('');
@@ -62,7 +67,10 @@ $(function(){
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
         $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
-           + '\'s ' + 'Birthday' + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
+           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
+        $("#btn"+person+"view").click(function(){
+            console.log("click");
+        })
     });
 });
 
