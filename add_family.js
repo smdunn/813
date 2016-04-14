@@ -43,7 +43,7 @@ $(function(){
         var year= $("#yearfam").val();
         $('#fams').append('<li><input type="button" class="btn btn-default" id='+lchild+' value='+lchild+'></input></li>');
 
-        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a>"+lchild+"<br>1. Patagonia Fleece<br>2. Rainboots<br>3. Headphones</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h4>"+lchild+"</h4>1. Patagonia Fleece<br>2. Rainboots<br>3. Headphones</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
         $("#famDiv").removeClass("hide");
         $("#famDiv").hide();
         $("#"+lchild+"").click(function(){
