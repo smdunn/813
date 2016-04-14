@@ -25,9 +25,9 @@
 	<div class="row">
 		<div class="col-sm-3 col-md-2"></div>
 		<div class="col-sm-9 col-md-10"> 
-		<div id="eventDiv" class="bottomRight">
+		<div id="eventDiv" class="bottomRight" onclick="handleClick(event);">
 		<h1 id='title'>Upcoming Events</h1>
-		<table class="table" id="events_table">
+		<table class="table" id="events_table" >
 		    <thead>
 		      <tr>
 		        <th>Date</th>
@@ -66,7 +66,15 @@
 	</div>
 </div>
 
+<script type="text/javascript">
 
+	function handleClick(evt) {
+  		var node = evt.target || evt.srcElement;
+  		
+  		
+	}
+
+</script>
 
 <!-- <div id="main">
 	<div id="child">
@@ -168,6 +176,9 @@
  
 <script type="text/javascript">
 $( "#header" ).load( "header.html" );
+	$(document).on("click",function(e){
+	console.log(e.target);
+});
 </script>
 </body>
 </html>

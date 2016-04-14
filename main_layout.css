@@ -2,6 +2,10 @@
 	background-color: #f499b4;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
 }
+.tr{
+	position:absolute;
+	z-index:0;
+}
 
 #sidebar{
 	top: 51px;
@@ -11,6 +15,14 @@
 	height: 100vh;
 	position: fixed;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
+}
+.btn{
+	position:relative;
+	z-index:5;
+}
+.btn-default{
+	position:relative;
+	z-index:5;
 }
 #events_table{
 	top: 60px;
@@ -35,6 +47,7 @@
 	top:0;
 	left:0;
 	width:100%;
+	z-index:0;
 }
 /* Popover Header */
 .popover-title {
