@@ -72,6 +72,7 @@ $(function(){
 
 	});
 
+    // when child is added add their birthday to upcoming events
     $(document).on('click', '#btnOkFam', function(){
         var person = $("#namefam").val();
         var month= $('#monthfam').val();
@@ -92,6 +93,14 @@ $(function(){
                 $("#btn"+person+"view").val("View");
             }
         });
+    });
+    // when family member is added add their birthday to upcoming events
+    $(document).on('click', '#btnOkFamMember', function(){
+        var person = $("#namefammember").val();
+        var month= $('#monthfammember').val();
+        var day= $("#dayfammember").val();
+        $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
+           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
     });
 });
 

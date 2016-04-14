@@ -26,12 +26,17 @@
 }
 #events_table{
 	top: 60px;
+	font-size: 16px;
 	position: relative;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
 	z-index: -1;
 }
 #logo{
 	font-size: 30px;
+	color: #34282C;
+}
+#welcome{
+	color: #34282C;
 }
 #title{
 	top: 60px;
@@ -67,8 +72,21 @@
 	top: 50px;
 	z-index: 0;
 }
-
-
+#btnAddFamilyMember{
+	position: relative;
+	float: right;
+}
+.fam_btn{
+	position: relative;
+	bottom:10px;
+}
+#families{
+	position: relative;
+	bottom: 10px;
+}
+#events_button{
+	font-size: 21px;
+}
 
 
 /*#banner{

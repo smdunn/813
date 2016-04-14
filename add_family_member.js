@@ -16,7 +16,8 @@ $(function(){
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         if (relationship=="spouse"){
 
-            $("#"+child+"div").append("<li><a><h4>"+grandchild+"</h4><br>1. Peacoat<br>2. Ovenmitt<br>3. Red Sox Tickets</a></li>");
+            $("#"+child+"div").append("<li><a><h3>"+grandchild+"</h3>1. Peacoat<br>2. Ovenmitt<br>3. Red Sox Tickets</a></li>");
+
             len= people.length;
             for (i=0;i<len;i++){
 
@@ -28,7 +29,8 @@ $(function(){
         }
         }
         else{
-            $('#'+child+"kids").append("<li><a><h4>"+grandchild+"</h4><br>1. Sneakers<br>2. Beats<br>3. Frisbee</a></li>");
+
+            $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3>1. Sneakers<br>2. Beats<br>3. Frisbee</a></li>");
                     len= people.length;
                     for (i=0;i<len;i++){
                         if (people[i].name==child){
