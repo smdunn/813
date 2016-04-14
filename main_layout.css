@@ -26,12 +26,17 @@
 }
 #events_table{
 	top: 60px;
+	font-size: 16px;
 	position: relative;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
 	z-index: -1;
 }
 #logo{
 	font-size: 30px;
+	color: #34282C;
+}
+#welcome{
+	color: #34282C;
 }
 #title{
 	top: 60px;
