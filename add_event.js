@@ -46,34 +46,44 @@ $(function(){
         var day = $('#inputDayEvent').val();
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
-        $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-           + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
-        $('#person').val('');
+
+
+        if (person.length > 0) {
+                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
+            + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
+            $('#person').val('');
             $('#events_table').tablesorter({ 
-        // sort on the first column and third column, order asc 
-        sortList: [[0,0],[2,0]] 
-        }); 
-        //$("#"+person+"list").css("visibility","hidden");
-        $("#btn"+person+"view").click(function(e){
-            //e.stopPropagation();
-            
-            if ($("#"+person+"list").hasClass("out")){
-                $("#"+person+"list").addClass("in");
-                $("#"+person+"list").removeClass("out");
-                $("#btn"+person+"view").val("Hide");
-            }
-            else{
-                $("#"+person+"list").addClass("out");
-                $("#"+person+"list").removeClass("in");
-                $("#btn"+person+"view").val("View");
-            }
-        });
-        $('#monthInputEvent').val('');
-        $('#dayInputEvent').val('');
-        $('#yearInputEvent').val('');
-        $('#inputEvent').val('');
+                           headers: {
+                    0: {
+                            sorter: 'date'
+                    }
+                },
+            // sort on the first column and third column, order asc 
+                sortList: [[0,0],[2,0]] 
+            }); 
+            //$("#"+person+"list").css("visibility","hidden");
+            $("#btn"+person+"view").click(function(e){
+                //e.stopPropagation();
+                
+                if ($("#"+person+"list").hasClass("out")){
+                    $("#"+person+"list").addClass("in");
+                    $("#"+person+"list").removeClass("out");
+                    $("#btn"+person+"view").val("Hide");
+                }
+                else{
+                    $("#"+person+"list").addClass("out");
+                    $("#"+person+"list").removeClass("in");
+                    $("#btn"+person+"view").val("View");
+                }
+            });
+            $('#monthInputEvent').val('');
+            $('#dayInputEvent').val('');
+            $('#yearInputEvent').val('');
+            $('#inputEvent').val('');
 
-
+            $(this).parents(".popover").popover('hide');
+        }
+        
 	});
 
     // when child is added add their birthday to upcoming events
@@ -81,12 +91,21 @@ $(function(){
         var person = $("#namefam").val();
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
-        $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
+
+        if (person.length > 0) {
+           $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
            + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></div></td></tr>');
+
             $('#events_table').tablesorter({ 
         // sort on the first column and third column, order asc 
+                   headers: {
+                    0: {
+                            sorter: 'date'
+                    }
+                    },
             sortList: [[0,0],[2,0]] 
-            }); 
+            });
+        }
         $("#btn"+person+"view").click(function(e){
             //e.stopPropagation();
             
