@@ -47,7 +47,7 @@ $(function(){
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
         $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-           + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
+           + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
         $('#person').val('');
             $('#events_table').tablesorter({ 
         // sort on the first column and third column, order asc 
@@ -82,7 +82,7 @@ $(function(){
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
         $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
-           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
+           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></div></td></tr>');
             $('#events_table').tablesorter({ 
         // sort on the first column and third column, order asc 
             sortList: [[0,0],[2,0]] 
