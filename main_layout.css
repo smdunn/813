@@ -2,6 +2,10 @@
 	background-color: #f499b4;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
 }
+.tr{
+	position:absolute;
+	z-index:0;
+}
 
 #sidebar{
 	top: 51px;
@@ -12,14 +16,27 @@
 	position: fixed;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
 }
+.btn{
+	position:relative;
+	z-index:5;
+}
+.btn-default{
+	position:relative;
+	z-index:5;
+}
 #events_table{
 	top: 60px;
+	font-size: 16px;
 	position: relative;
 	font-family: Avenir Black, Helvetica, Sans-Serif;
 	z-index: -1;
 }
 #logo{
 	font-size: 30px;
+	color: #34282C;
+}
+#welcome{
+	color: #34282C;
 }
 #title{
 	top: 60px;
@@ -30,7 +47,13 @@
 .popover{
 	width: 300px;
 }
-
+.bottomRight{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	z-index:0;
+}
 /* Popover Header */
 .popover-title {
     color:black; 
@@ -49,8 +72,21 @@
 	top: 50px;
 	z-index: 0;
 }
-
-
+#btnAddFamilyMember{
+	position: relative;
+	float: right;
+}
+.fam_btn{
+	position: relative;
+	bottom:10px;
+}
+#families{
+	position: relative;
+	bottom: 10px;
+}
+#events_button{
+	font-size: 21px;
+}
 
 
 /*#banner{

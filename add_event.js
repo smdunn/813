@@ -47,8 +47,27 @@ $(function(){
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
         $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-           + '\'s ' + e + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
+           + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
         $('#person').val('');
+            $('#events_table').tablesorter({ 
+        // sort on the first column and third column, order asc 
+        sortList: [[0,0],[2,0]] 
+        }); 
+        //$("#"+person+"list").css("visibility","hidden");
+        $("#btn"+person+"view").click(function(e){
+            //e.stopPropagation();
+            
+            if ($("#"+person+"list").hasClass("out")){
+                $("#"+person+"list").addClass("in");
+                $("#"+person+"list").removeClass("out");
+                $("#btn"+person+"view").val("Hide");
+            }
+            else{
+                $("#"+person+"list").addClass("out");
+                $("#"+person+"list").removeClass("in");
+                $("#btn"+person+"view").val("View");
+            }
+        });
         $('#monthInputEvent').val('');
         $('#dayInputEvent').val('');
         $('#yearInputEvent').val('');
@@ -57,11 +76,31 @@ $(function(){
 
 	});
 
+    // when child is added add their birthday to upcoming events
     $(document).on('click', '#btnOkFam', function(){
-        var person = people[0];
-        console.log(getMonth(person.events['Birthday'][0]));
-        $('#events_table').append('<tr><td>' + getMonth(person.events['Birthday'][0]) + ' ' + person.events['Birthday'][1] + '</td><td>' + person.name
-           + '\'s ' + 'Birthday' + '</td><td><button type="button" class="btn btn-default">View</button></td></tr>');
+        var person = $("#namefam").val();
+        var month= $('#monthfam').val();
+        var day= $("#dayfam").val();
+        $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
+           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
+            $('#events_table').tablesorter({ 
+        // sort on the first column and third column, order asc 
+            sortList: [[0,0],[2,0]] 
+            }); 
+        $("#btn"+person+"view").click(function(e){
+            //e.stopPropagation();
+            
+            if ($("#"+person+"list").hasClass("out")){
+                $("#"+person+"list").addClass("in");
+                $("#"+person+"list").removeClass("out");
+                $("#btn"+person+"view").val("Hide");
+            }
+            else{
+                $("#"+person+"list").addClass("out");
+                $("#"+person+"list").removeClass("in");
+                $("#btn"+person+"view").val("View");
+            }
+        });
     });
 });
 

@@ -33,30 +33,35 @@ $(function(){
         placement: 'auto'
     });
     $(document).on('click', '#btnOkFam', function(){
+
         $("#btnAddFamily").popover('hide');
         var lchild = $('#namefam').val();
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
         var year= $("#yearfam").val();
-        $('#fams').append('<li><input type="button" class="btn btn-default" id='+lchild+' value='+lchild+'></input></li>');
+        $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
 
-        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a>"+lchild+"</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3>1. Patagonia Fleece<br>2. Rainboots<br>3. Headphones</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+        $("#famDiv").removeClass("hide");
+        $("#famDiv").hide();
         $("#"+lchild+"").click(function(){
+            $("#btnAddEvent").css("visibility","invisible");
+            $("#famDiv").show();
+            $("#eventDiv").hide();
             len= people.length;
             for (i=0;i<len;i++){
                 $("#"+people[i].name+"div").hide();
             }
             $("#"+lchild+"div").show();
             child=lchild;
+
         });
 
+
+        
         $("#"+lchild+"div").hide();
 
     });
 });
 
-//ideas: have all family tree info in famtree.html
-// on new family, add to outermost div, add a child tag :
-//     "<li><a href="#" id="#"+child+"">"+child+"</a></li> " 
-//when button on sidebar is clicked, make $("#childname").show() and when leave it, $("#childname").hide()
-//add family member button will do similar
+

@@ -3,16 +3,19 @@
 <head>
   	<title>GiverGram</title>
   	<link rel="stylesheet" href="main_layout.css"/>
+  	  	<link rel="stylesheet" href="tree.css"/>
   	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="jquery.tablesorter.js"></script>
 
 	<!--<script type="text/javascript" src="add_family.js"></script>-->
 	<script type="text/javascript" src="add_event.js"></script>
 	<script type="text/javascript" src="people.js"></script>
+	<script type="text/javascript" src="add_family_member.js"></script>
 
 </head>
 <body>
@@ -23,26 +26,39 @@
 	<div class="row">
 		<div class="col-sm-3 col-md-2"></div>
 		<div class="col-sm-9 col-md-10"> 
+		<div id="eventDiv" class="bottomRight" onclick="handleClick(event);">
 		<h1 id='title'>Upcoming Events</h1>
-		<table class="table" id="events_table">
+		<table class="table" id="events_table"  class="tablesorter">
 		    <thead>
 		      <tr>
-		        <th>Date</th>
+		        <th class="sorter-grades">Date</th>
 		        <th>Event</th>
 		        <th>Wishlist</th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr>
-		        <td>October 23</td>
-		        <td>Nicole's Birthday</td>
-		        <td><button type="button" class="btn btn-default">View</button></td>
-		      </tr>
 		    </tbody>
+		    
 		</table>
-		<input type="button" class="btn btn-default" id="btnAddEvent" value="Add Event" ></input>
+		<table>
+			<tr>
+				<td>
+		<input type="button" class="btn btn-default" id="btnAddEvent" value="Add Event" position="relative" zIndex="0" ></input>
+		</td>
+	</tr>
+		</table>
 	</div>
-	<div id="popoverAddEvent" class="hide">
+	<div id="famDiv" class="bottomRight hide">
+		<div class="tree" id="treepage">
+ 		<div id="childappend"> 
+	</div>
+
+
+	<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
+
+</div>
+	</div>
+	<div id="popoverAddEvent" class="hide" >
 		<h2>Add Event</h2><br>
 		<form>
 			<h4>Person:</h4>
@@ -58,6 +74,16 @@
 	</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	function handleClick(evt) {
+  		var node = evt.target || evt.srcElement;
+
+  		
+	}
+
+</script>
 
 <!-- <div id="main">
 	<div id="child">
@@ -127,10 +153,58 @@
   	</div> -->
 
 <!-- </div> -->
-
+<div id="popoverAddFamilyMember" class="hide">
+		<h2>Add Family Member</h2><br>
+		<form>
+			<h4>Name:</h4>
+			<input id='namefammember' type='text' placeholder='Name'/><br><br>
+			<h4>Relationship to your Child</h4>
+			<div class="radio">
+  				<label><input type="radio" name="optradio" value="child">Child</label>
+			</div>
+			<div class="radio">
+  				<label><input type="radio" name="optradio" value="spouse">Spouse</label>
+			</div>		
+<!-- 			<div class="dropdown">
+			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true" aria-haspopup="true">Choose Relationship
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a href="#">Child</a></li>
+			    <li><a href="#">Spouse</a></li>
+			  </ul>
+			</div> -->
+			<h4>Birthday:</h4>
+			<input id='monthfammember' type='number' min='1' max='12' step='1' placeholder='Month'/>
+			<input id='dayfammember' type='number' min='1' max='31' step='1' placeholder='Day'/>
+			<input id='yearfammember' type='number' min='1900' max='2016' step='1' placeholder='Year'/><br><br>
+			<h4>Email</h4>
+			<input id='emailfammember' type='text' placeholder='Email'/><br><br>
+			<input type="button" class="btn btn-default" id="btnOkFamMember" value="Okay"></input>
+		</form>
+</div>
  
 <script type="text/javascript">
 $( "#header" ).load( "header.html" );
+	$(document).on("click",function(e){
+	console.log(e.target);
+});
+
+	    $.tablesorter.addParser({
+        id: "date",
+        is: function(s) {
+            return /^[0-9]{1,2} [a-zA-Z]+, [0-9]{1,2}:[0-9]{1,2}$/.test(s);
+        },
+        format: function(s) {
+            s = s.replace(/January/,1).replace(/February/,2).replace(/March/,3).replace(/April/,4).replace(/May/,5).replace(/June/,6).replace(/July/,7).replace(/August/,8).replace(/September/,9).replace(/October/,10).replace(/November/,11).replace(/December/,12);
+            s = s.split(" ");
+            console.log(s[0]);
+            s = s[0]*1000000+s[1]*10000;
+
+            return s;
+        },
+        type: "numeric"
+    });
+
 </script>
 </body>
 </html>
