@@ -84,12 +84,14 @@ $(function(){
         var person = $("#namefam").val();
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
-        $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
+        if (person.length > 0) {
+            $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + person
            + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
             $('#events_table').tablesorter({ 
         // sort on the first column and third column, order asc 
             sortList: [[0,0],[2,0]] 
-            }); 
+            });
+        }
         $("#btn"+person+"view").click(function(e){
             //e.stopPropagation();
             
