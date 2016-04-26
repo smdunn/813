@@ -40,10 +40,11 @@ $(function(){
     });
 
 	$(document).on('click', '#btnOkEvent', function(){
-		//$("#btnAddEvent").popover('hide');
-        var month = $('#inputMonthEvent').val();
-        month = getMonth(month);
-        var day = $('#inputDayEvent').val();
+		$("#btnAddEvent").popover('hide');
+        var date = $('#inputDate').val();
+        var eventDate = new Date(date);
+        var month = getMonth(eventDate.getMonth() + 1);
+        var day = eventDate.getDate() + 1;
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
         if (person.length > 0) {
