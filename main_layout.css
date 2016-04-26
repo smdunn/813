@@ -1,6 +1,6 @@
 #banner{
 	background-color: #f499b4;
-	font-family: Avenir Black, Helvetica, Sans-Serif;
+	font-family: Verdana, Helvetica, Sans-Serif;
 }
 .tr{
 	position:absolute;
@@ -10,11 +10,11 @@
 #sidebar{
 	top: 51px;
 	left: 0px;
-	background-color: #F0F8FF;
+	background-color: #C3DBDE;
 	padding: 20px;
 	height: 100vh;
 	position: fixed;
-	font-family: Avenir Black, Helvetica, Sans-Serif;
+	font-family: Verdana, Helvetica, Sans-Serif;
 }
 .btn{
 	position:relative;
@@ -28,7 +28,7 @@
 	top: 60px;
 	font-size: 16px;
 	position: relative;
-	font-family: Avenir Black, Helvetica, Sans-Serif;
+	font-family: Verdana, Helvetica, Sans-Serif;
 	z-index: -1;
 }
 #logo{
@@ -41,7 +41,7 @@
 #title{
 	top: 60px;
 	position: relative;
-	font-family: Avenir Black, Helvetica, Sans-Serif;
+	font-family: Verdana, Helvetica, Sans-Serif;
 	z-index: -1;
 }
 .popover{
@@ -58,14 +58,14 @@
 .popover-title {
     color:black; 
     text-align:center;
-    font-family: Avenir Black, Helvetica, Sans-Serif;
+    font-family: Verdana, Helvetica, Sans-Serif;
 }
 /* Popover Body */
 .popover-content {
-    background-color: #F0F8FF;
+    background-color: #C3DBDE;
     color: black;
     padding: 25px;
-    font-family: Avenir Black, Helvetica, Sans-Serif;
+    font-family: Verdana, Helvetica, Sans-Serif;
 }
 #btnAddEvent{
 	position: relative;

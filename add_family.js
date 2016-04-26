@@ -28,20 +28,21 @@
 $(function(){
     $('#btnAddFamily').popover({
         html: true,
-        // title: 'Popover Title<a class="close" href="#");"></a>',
+        title: 'Add Child<a class="close" href="#");">&times;</a>',
         content: $('#popoverAddFamily').html(),
         placement: 'auto'
     });
     $(document).on('click', '#btnOkFam', function(){
-
-        $("#btnAddFamily").popover('hide');
         var lchild = $('#namefam').val();
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
         var year= $("#yearfam").val();
-        $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
+        if (lchild.length > 0) {
+            $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
 
-        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3>1. Patagonia Fleece<br>2. Rainboots<br>3. Headphones</a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+            $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. Patagonia Fleece<br>2. Rainboots<br>3. Headphones</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+            $("#btnAddFamily").popover('hide');
+        }
         $("#famDiv").removeClass("hide");
         $("#famDiv").hide();
         $("#"+lchild+"").click(function(){
