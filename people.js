@@ -2,6 +2,36 @@
 // date = [month, date, year] --> ['12', '16', '1995']
 
 people = [];
+wishlists=[];
+wishlists.push(["Patagonia Fleece","Rainboots","Headphones"]);
+wishlists.push(["Fitbit","Headbands","Running Shoes"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["Knee Pads","Baseball Bat","Cleats"]);
+wishlists.push(["Macbook Laptop","Keyboard Cover","Screen Wipes"]);
+wishlists.push(["Easel","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["IPhone Case","Paint Brushes","Acrylic Paint"]);
+wishlists.push(["Waiting for Response","...","..."]);
+wishlists.push(["Waiting for Response","...","..."]);
+wishlists.push(["Waiting for Response","...","..."]);
+wishlists.push(["Waiting for Response","...","..."]);
+wishlists.push(["Waiting for Response","...","..."]);
+
+
 
 $(document).on('click', '#btnOkFam', function(){
     var b_month = $('#monthfam').val();
