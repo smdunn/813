@@ -184,7 +184,6 @@
 <script type="text/javascript">
 $( "#header" ).load( "header.html" );
 	$(document).on("click",function(e){
-	console.log(e.target);
 });
 
 	    $.tablesorter.addParser({
@@ -195,7 +194,6 @@ $( "#header" ).load( "header.html" );
         format: function(s) {
             s = s.replace(/January/,1).replace(/February/,2).replace(/March/,3).replace(/April/,4).replace(/May/,5).replace(/June/,6).replace(/July/,7).replace(/August/,8).replace(/September/,9).replace(/October/,10).replace(/November/,11).replace(/December/,12);
             s = s.split(" ");
-            console.log(s[0]);
             s = s[0]*1000000+s[1]*10000;
 
             return s;
