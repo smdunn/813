@@ -59,6 +59,8 @@
     color:black; 
     text-align:center;
     font-family: Verdana, Helvetica, Sans-Serif;
+    font-size: 30px;
+    color: #F5F5F5;
 }
 /* Popover Body */
 .popover-content {
@@ -76,6 +78,11 @@
 	position: relative;
 	float: right;
 }
+#btnAddEvent{
+	position: relative;
+	float: right;
+	top: 90px;
+}
 .fam_btn{
 	position: relative;
 	bottom:10px;
@@ -87,7 +94,9 @@
 #events_button{
 	font-size: 19px;
 }
-
+#todays_date{
+	font-size: 14px;
+}
 
 /*#banner{
 	background-color:#f499b4;

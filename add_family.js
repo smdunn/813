@@ -49,6 +49,7 @@ $(function(){
             $("#btnAddEvent").css("visibility","invisible");
             $("#famDiv").show();
             $("#eventDiv").hide();
+            $('#btnAddEvent').hide();
             len= people.length;
             for (i=0;i<len;i++){
                 $("#"+people[i].name+"div").hide();
