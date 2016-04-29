@@ -40,7 +40,6 @@ $(function(){
     });
 
 	$(document).on('click', '#btnOkEvent', function(){
-		$("#btnAddEvent").popover('hide');
         var date = $('#inputDate').val();
         var eventDate = new Date(date);
         var month = getMonth(eventDate.getMonth() + 1);
@@ -48,8 +47,7 @@ $(function(){
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
 
-
-        if (person.length > 0) {
+        if (person.length > 0 && !isNaN(eventDate.getMonth()) && e.length > 0) {
                 $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
             + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
             $('#person').val('');
@@ -86,6 +84,11 @@ $(function(){
         }
         
 	});
+    
+    // when Add Event popover is opened, close Add Child popover
+    $(document).on('click', '#btnAddEvent', function() {
+        $('#btnAddFamily').popover('hide');
+    });
 
     // when child is added add their birthday to upcoming events
     $(document).on('click', '#btnOkFam', function(){

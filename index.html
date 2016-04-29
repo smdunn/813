@@ -43,11 +43,13 @@
 		<table>
 			<tr>
 				<td>
-		<input type="button" class="btn btn-default" id="btnAddEvent" value="Add Event" position="relative" zIndex="0" ></input>
+		
 		</td>
 	</tr>
 		</table>
 	</div>
+	<input type="button" class="btn btn-default" id="btnAddEvent" value="Add Event" position="relative" zIndex="0" ></input>
+
 	<div id="famDiv" class="bottomRight hide">
 		<div class="tree" id="treepage">
  		<div id="childappend"> 
@@ -171,7 +173,7 @@
 			    <li><a href="#">Spouse</a></li>
 			  </ul>
 			</div> -->
-			<h4>Birthday:</h4>
+			<h4>Birthdate:</h4>
 			<input id='monthfammember' type='number' min='1' max='12' step='1' placeholder='Month'/>
 			<input id='dayfammember' type='number' min='1' max='31' step='1' placeholder='Day'/>
 			<input id='yearfammember' type='number' min='1900' max='2016' step='1' placeholder='Year'/><br><br>
@@ -184,7 +186,6 @@
 <script type="text/javascript">
 $( "#header" ).load( "header.html" );
 	$(document).on("click",function(e){
-	console.log(e.target);
 });
 
 	    $.tablesorter.addParser({
@@ -195,7 +196,6 @@ $( "#header" ).load( "header.html" );
         format: function(s) {
             s = s.replace(/January/,1).replace(/February/,2).replace(/March/,3).replace(/April/,4).replace(/May/,5).replace(/June/,6).replace(/July/,7).replace(/August/,8).replace(/September/,9).replace(/October/,10).replace(/November/,11).replace(/December/,12);
             s = s.split(" ");
-            console.log(s[0]);
             s = s[0]*1000000+s[1]*10000;
 
             return s;

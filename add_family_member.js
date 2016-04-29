@@ -61,4 +61,9 @@ $(function(){
         });
 
     });
+
+    // when Add Family Member popover is opened, close Add Child popover
+    $(document).on('click', '#btnAddFamilyMember', function() {
+        $('#btnAddFamily').popover('hide');
+    });
 });

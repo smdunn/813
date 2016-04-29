@@ -49,6 +49,7 @@ $(function(){
             $("#btnAddEvent").css("visibility","invisible");
             $("#famDiv").show();
             $("#eventDiv").hide();
+            $('#btnAddEvent').hide();
             len= people.length;
             for (i=0;i<len;i++){
                 $("#"+people[i].name+"div").hide();
@@ -56,12 +57,19 @@ $(function(){
             $("#"+lchild+"div").show();
             child=lchild;
 
-        });
-
-
-        
+        });     
         $("#"+lchild+"div").hide();
 
+    });
+
+    // when Add Child popover is opened, close Add Event popover
+    $(document).on('click', '#btnAddFamily', function() {
+        $('#btnAddEvent').popover('hide');
+    });
+
+    // when Add Child popover is opened, close Add Family Member popover
+    $(document).on('click', '#btnAddFamily', function() {
+        $('#btnAddFamilyMember').popover('hide');
     });
 });
 
