@@ -98,6 +98,10 @@
 	font-size: 14px;
 }
 
+.link{
+	border:none;
+	background: none;
+}
 /*#banner{
 	background-color:#f499b4;
 	height:50px;

@@ -48,8 +48,8 @@ $(function(){
         var e = $('#inputEvent').val();
 
         if (person.length > 0 && !isNaN(eventDate.getMonth()) && e.length > 0) {
-                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-            + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
+                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+person+'link" value="'+person+'"">'
+            + '\'s </input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
             $('#person').val('');
             $('#events_table').tablesorter({ 
                            headers: {
@@ -63,7 +63,6 @@ $(function(){
             //$("#"+person+"list").css("visibility","hidden");
             $("#btn"+person+"view").click(function(e){
                 //e.stopPropagation();
-                
                 if ($("#"+person+"list").hasClass("out")){
                     $("#"+person+"list").addClass("in");
                     $("#"+person+"list").removeClass("out");
@@ -75,6 +74,11 @@ $(function(){
                     $("#btn"+person+"view").val("View");
                 }
             });
+            //This makes a person's name link to their fam div
+            $("#"+person+"link").click(function(e){
+                
+            });
+
             $('#monthInputEvent').val('');
             $('#dayInputEvent').val('');
             $('#yearInputEvent').val('');
@@ -98,7 +102,7 @@ $(function(){
 
         if (person.length > 0) {
            $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
-           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></div></td></tr>');
+           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
 
             $('#events_table').tablesorter({ 
         // sort on the first column and third column, order asc 
@@ -112,7 +116,6 @@ $(function(){
         }
         $("#btn"+person+"view").click(function(e){
             //e.stopPropagation();
-            
             if ($("#"+person+"list").hasClass("out")){
                 $("#"+person+"list").addClass("in");
                 $("#"+person+"list").removeClass("out");
@@ -125,6 +128,7 @@ $(function(){
             }
         });
     });
+
 });
 
 function getMonth(month) {
