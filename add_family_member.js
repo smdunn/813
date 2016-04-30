@@ -1,3 +1,49 @@
+wishlists=[];
+wishlists.push("Patagonia Fleece");
+wishlists.push("Rainboots");
+wishlists.push("Headphones");
+wishlists.push("Fitbit");
+wishlists.push("Headbands");
+wishlists.push("Running Shoes");
+wishlists.push("IPhone Case");
+wishlists.push("Paint Brushes");
+wishlists.push("Acrylic Paint");
+wishlists.push("Running Shoes");
+wishlists.push("Knee Pads");
+wishlists.push("Baseball Bat");
+wishlists.push("Cleats");
+wishlists.push("Macbook Laptop");
+wishlists.push("Keyboard Cover");
+wishlists.push("Screen Wipes");
+wishlists.push("Easel");
+wishlists.push("Paint Brushes");
+wishlists.push("Acrylic Paint");
+wishlists.push("Itunes Gift Card");
+wishlists.push("Apple Watch");
+wishlists.push("Headphones");
+wishlists.push("Silverware");
+wishlists.push("Rug");
+wishlists.push("Refrigerator");
+wishlists.push("Canon Camera");
+wishlists.push("Wide Angle Lens");
+wishlists.push("Trifold");
+wishlists.push("Xbox");
+wishlists.push("Legend of Zelda");
+wishlists.push("Xbox Controller");
+wishlists.push("Backpack");
+wishlists.push("Nike Socks");
+wishlists.push("Athletic Shorts");
+wishlists.push("Umbrella");
+wishlists.push("Nike Socks");
+wishlists.push("Raincoat");
+wishlists.push("IPhone");
+wishlists.push("Headphones");
+wishlists.push("Speakers");
+wishlists.push("Techcash");
+wishlists.push("Notebooks");
+wishlists.push("Caligraphy Pens");
+
+
 $(function(){
     $('#btnAddFamilyMember').popover({
         html: true,
@@ -14,35 +60,74 @@ $(function(){
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         if (grandchild.length > 0) {
             if (relationship=="spouse"){
-
-                $("#"+child+"div").append("<li><a><h3>"+grandchild+"</h3>1. Peacoat<br>2. Ovenmitt<br>3. Red Sox Tickets</a></li>");
-
                 len= people.length;
                 for (i=0;i<len;i++){
 
                 if (people[i].name==child){
-                    people[i].spouse={name: grandchild, email: $('#emailfammember').val(), events: {'Birthday': [month, day, year]}, wishlist: ["Peacoat","Ovenmitt","Red Sox Tickets"] };
-                }
-                else{
-                }
-            }
-            }
-            else{
+                        persondict=people[i];
+                        length= wishlists.length;
+                        list=[];
+                        ran= Math.random();
 
-                $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3>1. Sneakers<br>2. Beats<br>3. Frisbee</a></li>");
-                        len= people.length;
-                        for (i=0;i<len;i++){
-                            if (people[i].name==child){
-                                obj={name: grandchild, email: $('#emailfammember').val(), events: {'Birthday': [month, day, year]}, wishlist: ["Sneakers","Beats","Frisbee"] };
-                                people[i].children.push(obj);
+                        if (ran<.2){
+                            list.push("Waiting for Response");
+                            list.push("...");
+                            list.push("...");
                             }
                             else{
+                                for (x=0;x<3;x++){
+                                ran=Math.round(Math.random()*length);
+                                list.push(wishlists[ran]);
                             }
-                        }
+
+                            }
+                    people[i].spouse={name: grandchild, email: $('#emailfammember').val(), events: {'Birthday': [month, day, year]}, wishlist: list};
+                    grandchilddict=people[i].spouse;
+                }
+            }
+                $("#"+child+"div").append("<li><a><h3>"+grandchild+"</h3>1."+persondict.spouse.wishlist[0]+"<br>2."+persondict.spouse.wishlist[1]+"<br>3. "+persondict.spouse.wishlist[2]+"</a></li>");
+
+
+            }
+            else{
+                len= people.length;
+                for (i=0;i<len;i++){
+
+                if (people[i].name==child){
+                        persondict=people[i];
+                        length= wishlists.length;
+                        list=[];
+                        ran= Math.random();
+
+                        if (ran<.2){
+                            list.push("Waiting for Response");
+                            list.push("...");
+                            list.push("...");
+                            }
+                            else{
+                                for (x=0;x<3;x++){
+                                ran=Math.round(Math.random()*length);
+                                list.push(wishlists[ran]);
+                            }
+
+                            }
+                            if (people[i].children===undefined){
+                                people[i].children=[];
+                            }
+                    people[i].children.push({name: grandchild, email: $('#emailfammember').val(), events: {'Birthday': [month, day, year]}, wishlist: list});
+                }
+            }
+            length=persondict.children.length;
+            for (i=0;i<length;i++){
+                if (persondict.children[i].name==grandchild){
+                    grandchilddict=persondict.children[i];
+                }
+            }
+                $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3>1."+grandchilddict.wishlist[0]+"<br>2."+grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</a></li>");
             }
 
             $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + grandchild
-               + '\'s ' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></tr>');
+               + '\'s ' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td></td><td></td><td><ul><li>1.'+grandchilddict.wishlist[0]+'<br>2.'+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</li></ul></td></tr>');
             $("#btnAddFamilyMember").popover('hide');
         }
         $("#btn"+grandchild+"view").click(function(e){

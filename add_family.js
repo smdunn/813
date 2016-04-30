@@ -1,29 +1,48 @@
-// $(function() {
-//     $("#btnAddFamily").click(function() {
-//         $("#dialogAddFamily").show();
-//     });
-//     $("#btnOK").click(function() {
-//         var child = $('#childs_name').val();
-//         if (child.length > 0) {
-//         	$("#dialogAddFamily").hide();
-//         	$('#sidebar_order').append('<tr><td><input type="button" id="events_button" value="' + child + '\'s Family"></input></td></tr>');
-//         	$('#childs_name').val('');
-//             $('#monthInputFam').val('');
-//             $('#dayInputFam').val('');
-//             $('#yearInputFam').val('');
-//             $('#childs_email').val('');
-//         }
-//     });
-//     $('#btnCancel').click(function() {
-//         $("#dialogAddFamily").hide();
-//         $('#childs_name').val('');
-//         $('#monthInputFam').val('');
-//         $('#dayInputFam').val('');
-//         $('#yearInputFam').val('');
-//         $('#childs_email').val('');
-//     });
-// });
 
+wishlists=[];
+wishlists.push("Patagonia Fleece");
+wishlists.push("Rainboots");
+wishlists.push("Headphones");
+wishlists.push("Fitbit");
+wishlists.push("Headbands");
+wishlists.push("Running Shoes");
+wishlists.push("IPhone Case");
+wishlists.push("Paint Brushes");
+wishlists.push("Acrylic Paint");
+wishlists.push("Running Shoes");
+wishlists.push("Knee Pads");
+wishlists.push("Baseball Bat");
+wishlists.push("Cleats");
+wishlists.push("Macbook Laptop");
+wishlists.push("Keyboard Cover");
+wishlists.push("Screen Wipes");
+wishlists.push("Easel");
+wishlists.push("Paint Brushes");
+wishlists.push("Acrylic Paint");
+wishlists.push("Itunes Gift Card");
+wishlists.push("Apple Watch");
+wishlists.push("Headphones");
+wishlists.push("Silverware");
+wishlists.push("Rug");
+wishlists.push("Refrigerator");
+wishlists.push("Canon Camera");
+wishlists.push("Wide Angle Lens");
+wishlists.push("Trifold");
+wishlists.push("Xbox");
+wishlists.push("Legend of Zelda");
+wishlists.push("Xbox Controller");
+wishlists.push("Backpack");
+wishlists.push("Nike Socks");
+wishlists.push("Athletic Shorts");
+wishlists.push("Umbrella");
+wishlists.push("Nike Socks");
+wishlists.push("Raincoat");
+wishlists.push("IPhone");
+wishlists.push("Headphones");
+wishlists.push("Speakers");
+wishlists.push("Techcash");
+wishlists.push("Notebooks");
+wishlists.push("Caligraphy Pens");
 
 $(function(){
     $('#btnAddFamily').popover({
@@ -38,9 +57,60 @@ $(function(){
         var day= $("#dayfam").val();
         var year= $("#yearfam").val();
         if (lchild.length > 0) {
+    persondict=null;
+                here=false;
+                for (i=0;i<people.length;i++){
+                    if (lchild==people[i].name){
+                        persondict=people[i];
+                        here=true;
+                    }
+                }
+            if (here){
+                          $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1."+persondict.wishlist[0]+"<br>2."+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+            }
+            else{
+
+
+
+                    list=[];
+    ran= Math.random();
+    if (ran<.2){
+        list.push("Waiting for Response");
+        list.push("...");
+        list.push("...");
+        }
+        else{
+            for (i=0;i<3;i++){
+            ran=Math.random()*length;
+            list.push(wishlists[ran]);
+        }
+
+        }
+    var person = {
+        name: $('#namefam').val(), 
+        email: $('#emailfam').val(), 
+        events: {'Birthday': [month, day, year]}, 
+        wishlist: list, 
+        
+        
+        spouse: '', 
+        children: []
+    };
+
+    people.push(person);
+                    persondict=null;
+                here=false;
+                for (i=0;i<people.length;i++){
+                    if (lchild==people[i].name){
+                        persondict=people[i];
+                        here=true;
+                    }
+                }
+                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1."+persondict.wishlist[0]+"<br>2."+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+            }
             $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
 
-            $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. Patagonia Fleece<br>2. Rainboots<br>3. Headphones</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+  
             $("#btnAddFamily").popover('hide');
         }
         $("#famDiv").removeClass("hide");

@@ -25,6 +25,50 @@
 //         $('#event').val('');
 //     });
 // });
+wishlists=[];
+wishlists.push("Patagonia Fleece");
+wishlists.push("Rainboots");
+wishlists.push("Headphones");
+wishlists.push("Fitbit");
+wishlists.push("Headbands");
+wishlists.push("Running Shoes");
+wishlists.push("IPhone Case");
+wishlists.push("Paint Brushes");
+wishlists.push("Acrylic Paint");
+wishlists.push("Running Shoes");
+wishlists.push("Knee Pads");
+wishlists.push("Baseball Bat");
+wishlists.push("Cleats");
+wishlists.push("Macbook Laptop");
+wishlists.push("Keyboard Cover");
+wishlists.push("Screen Wipes");
+wishlists.push("Easel");
+wishlists.push("Paint Brushes");
+wishlists.push("Acrylic Paint");
+wishlists.push("Itunes Gift Card");
+wishlists.push("Apple Watch");
+wishlists.push("Headphones");
+wishlists.push("Silverware");
+wishlists.push("Rug");
+wishlists.push("Refrigerator");
+wishlists.push("Canon Camera");
+wishlists.push("Wide Angle Lens");
+wishlists.push("Trifold");
+wishlists.push("Xbox");
+wishlists.push("Legend of Zelda");
+wishlists.push("Xbox Controller");
+wishlists.push("Backpack");
+wishlists.push("Nike Socks");
+wishlists.push("Athletic Shorts");
+wishlists.push("Umbrella");
+wishlists.push("Nike Socks");
+wishlists.push("Raincoat");
+wishlists.push("IPhone");
+wishlists.push("Headphones");
+wishlists.push("Speakers");
+wishlists.push("Techcash");
+wishlists.push("Notebooks");
+wishlists.push("Caligraphy Pens");
 
 
 $(function(){
@@ -48,8 +92,16 @@ $(function(){
         var e = $('#inputEvent').val();
 
         if (person.length > 0 && !isNaN(eventDate.getMonth()) && e.length > 0) {
+            persondict=null;
+                here=false;
+                for (i=0;i<people.length;i++){
+                    if (person==people[i].name){
+                        persondict=people[i];
+                        here=true;
+                    }
+                }
                 $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-            + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></div></td></tr>');
+            + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
             $('#person').val('');
             $('#events_table').tablesorter({ 
                            headers: {
@@ -95,11 +147,61 @@ $(function(){
         var person = $("#namefam").val();
         var month= $('#monthfam').val();
         var day= $("#dayfam").val();
+        var year = $('#yearfam').val();
 
         if (person.length > 0) {
-           $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
-           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li> Peacoat</li><li> Ovenmitt</li><li> Red Sox Tickets</li></ul></td></div></td></tr>');
+                persondict=null;
+                here=false;
+                for (i=0;i<people.length;i++){
+                    if (person==people[i].name){
+                        persondict=people[i];
+                        here=true;
+                    }
+                }
+            if (here){
+            $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
+           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
+            }
+            else{
 
+                    list=[];
+    ran= Math.random();
+    if (ran<.2){
+        list.push("Waiting for Response");
+        list.push("...");
+        list.push("...");
+        }
+        else{
+            for (i=0;i<3;i++){
+            ran=Math.random()*length;
+            list.push(wishlists[ran]);
+        }
+
+        }
+    var person = {
+        name: $('#namefam').val(), 
+        email: $('#emailfam').val(), 
+        events: {'Birthday': [month, day, year]}, 
+        wishlist: list, 
+        
+        
+        spouse: '', 
+        children: []
+    };
+
+    people.push(person);
+                    persondict=null;
+                here=false;
+                for (i=0;i<people.length;i++){
+                    if (person==people[i].name){
+                        persondict=people[i];
+                        here=true;
+                    }
+                }
+                $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
+     + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
+           
+}
             $('#events_table').tablesorter({ 
         // sort on the first column and third column, order asc 
                    headers: {
@@ -109,7 +211,9 @@ $(function(){
                     },
             sortList: [[0,0],[2,0]] 
             });
-        }
+        
+    }
+
         $("#btn"+person+"view").click(function(e){
             //e.stopPropagation();
             
@@ -124,6 +228,7 @@ $(function(){
                 $("#btn"+person+"view").val("View");
             }
         });
+
     });
 });
 
