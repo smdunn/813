@@ -49,14 +49,19 @@ $(function(){
         html: true,
         title: 'Add Family Member<a class="close" href="#");">&times;</a>',
         content: $('#popoverAddFamilyMember').html(),
-        placement: 'auto'
+        placement: 'auto',
+        callback: function() { 
+            $('.datepicker-fammember').datepicker(); 
+        } 
     });
 
     $(document).on('click', '#btnOkFamMember', function(){ //
         var grandchild = $('#namefammember').val();
-        var month= $('#monthfammember').val();
-        var day= $("#dayfammember").val();
-        var year= $("#yearfammember").val();
+        var date = $('#inputDateFamMember').val();
+        var eventDate = new Date(date);
+        var month = getMonth(eventDate.getMonth() + 1);
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         if (grandchild.length > 0) {
             if (relationship=="spouse"){
@@ -126,7 +131,7 @@ $(function(){
                 $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3>1."+grandchilddict.wishlist[0]+"<br>2."+grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</a></li>");
             }
 
-            $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+'link" value=" '+grandchild+'\'s ">'
+            $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+'link" value=" '+grandchild+'\'s ">'
                + '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li>1.'+grandchilddict.wishlist[0]+'<br>2.'+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</li></ul></tr>');
             $("#btnAddFamilyMember").popover('hide');
         }

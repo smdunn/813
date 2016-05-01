@@ -51,12 +51,10 @@ wishlists.push("Caligraphy Pens");
 
 $(document).on('click', '#btnOkFam', function(){
     var date = $('#inputDateChild').val();
-    console.log(date);
     var eventDate = new Date(date);
     var b_month = getMonth(eventDate.getMonth() + 1);
     var b_day = eventDate.getDate();
     var b_year = eventDate.getFullYear();
-    console.log(b_month, b_day, b_year);
     var person= $('#namefam').val(), 
     length= wishlists.length;
     list=[];
