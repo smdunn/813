@@ -71,7 +71,8 @@ $(function(){
         var date = $('#inputDate').val();
         var eventDate = new Date(date);
         var month = getMonth(eventDate.getMonth() + 1);
-        var day = eventDate.getDate() + 1;
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
 
@@ -129,9 +130,11 @@ $(function(){
     // when child is added add their birthday to upcoming events
     $(document).on('click', '#btnOkFam', function(){
         var person = $("#namefam").val();
-        var month= $('#monthfam').val();
-        var day= $("#dayfam").val();
-        var year = $('#yearfam').val();
+        var date = $('#inputDateChild').val();
+        var eventDate = new Date(date);
+        var month = getMonth(eventDate.getMonth() + 1);
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
 
         if (person.length > 0) {
                 persondict=null;
@@ -143,7 +146,7 @@ $(function(){
                     }
                 }
             if (here){
-            $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
+            $('#events_table').append('<tr><td id="date">' + month + ' ' + day + '</td><td>' + person
            + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
             }
             else{
@@ -182,7 +185,7 @@ $(function(){
                         here=true;
                     }
                 }
-                $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
+                $('#events_table').append('<tr><td id="date">' + month + ' ' + day + '</td><td>' + person
      + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
            
 }

@@ -44,18 +44,24 @@ wishlists.push("Techcash");
 wishlists.push("Notebooks");
 wishlists.push("Caligraphy Pens");
 
+
 $(function(){
     $('#btnAddFamily').popover({
         html: true,
         title: 'Add Child<a class="close" href="#");">&times;</a>',
         content: $('#popoverAddFamily').html(),
-        placement: 'auto'
+        placement: 'auto',
+        callback: function() { 
+            $('.datepicker-child').datepicker(); 
+        } 
     });
     $(document).on('click', '#btnOkFam', function(){
         var lchild = $('#namefam').val();
-        var month= $('#monthfam').val();
-        var day= $("#dayfam").val();
-        var year= $("#yearfam").val();
+        var date = $('#inputDateChild').val();
+        var eventDate = new Date(date);
+        var month = getMonth(eventDate.getMonth() + 1);
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
         if (lchild.length > 0) {
     persondict=null;
                 here=false;
@@ -91,8 +97,6 @@ $(function(){
         email: $('#emailfam').val(), 
         events: {'Birthday': [month, day, year]}, 
         wishlist: list, 
-        
-        
         spouse: '', 
         children: []
     };
