@@ -126,10 +126,35 @@ $(function(){
                 $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3>1."+grandchilddict.wishlist[0]+"<br>2."+grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</a></li>");
             }
 
-            $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td>' + grandchild
-               + '\'s ' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td></td><td></td><td><ul><li>1.'+grandchilddict.wishlist[0]+'<br>2.'+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</li></ul></td></tr>');
+            $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+'link" value=" '+grandchild+'\'s ">'
+               + '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li>1.'+grandchilddict.wishlist[0]+'<br>2.'+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</li></ul></tr>');
             $("#btnAddFamilyMember").popover('hide');
         }
+
+            $("#"+grandchild+"link").click(function(e){
+                $("#btnAddEvent").css("visibility","invisible");
+                $("#famDiv").show();
+                $("#eventDiv").hide();
+                $('#btnAddEvent').hide();
+                len= people.length;
+                parent = null;
+                for (i=0;i<len;i++){
+                    $("#"+people[i].name+"div").hide();
+                    if(people[i].spouse.name==grandchild){
+                        parent=people[i].name;
+                    }
+                    else{
+                        console.log(people[i].spouse.name);
+                    }
+                    for (j=0;j<people[i].children.length;j++){
+                        if (people[i].children[j].name==grandchild){
+                            parent=people[i].name;
+                        }
+                    }
+                }
+                $("#"+parent+"div").show();
+            });
+
         $("#btn"+grandchild+"view").click(function(e){
             //e.stopPropagation();
             

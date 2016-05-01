@@ -1,3 +1,30 @@
+// $(function() {
+//     $("#add_event").click(function() {
+//         $("#dialogAddEvent").show();
+//     });
+//     $("#addEventOk").click(function() {
+//         $("#dialogAddEvent").hide();
+//         var month = $('#monthInputEvent').val();
+//         var day = $('#dayInputEvent').val();
+//         var person = $('#person').val();
+//         var e = $('#event').val();
+//         $('#events_table tr.add_event_row').before('<tr class="border"><td class="date">' + month + day + '</td><td class="event">' + person
+//            + '\'s ' + e + '</td><td class="wishlist"><input type="button" id="view_wishlist" value="View"></input></td>)</tr>');
+//         $('#person').val('');
+//         $('#monthInputEvent').val('');
+//         $('#dayInputEvent').val('');
+//         $('#yearInputEvent').val('');
+//         $('#event').val('');
+//     });
+//     $('#addEventCancel').click(function() {
+//         $("#dialogAddEvent").hide();
+//         $('#person').val('');
+//         $('#monthInputEvent').val('');
+//         $('#dayInputEvent').val('');
+//         $('#yearInputEvent').val('');
+//         $('#event').val('');
+//     });
+// });
 wishlists=[];
 wishlists.push("Patagonia Fleece");
 wishlists.push("Rainboots");
@@ -44,23 +71,12 @@ wishlists.push("Notebooks");
 wishlists.push("Caligraphy Pens");
 
 
-var tmp = $.fn.popover.Constructor.prototype.show;
-$.fn.popover.Constructor.prototype.show = function () {
-  tmp.call(this);
-  if (this.options.callback) {
-    this.options.callback();
-  }
-}
-
 $(function(){
 	$('#btnAddEvent').popover({
         html: true,
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
         content: $('#popoverAddEvent').html(),
-        callback: function() { 
-            $('.datepicker').datepicker(); 
-        } 
 	});
 
     $(document).on("click", ".close" , function(){
@@ -77,6 +93,7 @@ $(function(){
         var e = $('#inputEvent').val();
 
         if (person.length > 0 && !isNaN(eventDate.getMonth()) && e.length > 0) {
+
             persondict=null;
                 here=false;
                 for (i=0;i<people.length;i++){
@@ -85,8 +102,8 @@ $(function(){
                         here=true;
                     }
                 }
-                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td>' + person
-            + '\'s ' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+'link" value=" '+person+'\'s ">'
+            + '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
             $('#person').val('');
             $('#events_table').tablesorter({ 
                            headers: {
@@ -100,7 +117,6 @@ $(function(){
             //$("#"+person+"list").css("visibility","hidden");
             $("#btn"+person+"view").click(function(e){
                 //e.stopPropagation();
-                
                 if ($("#"+person+"list").hasClass("out")){
                     $("#"+person+"list").addClass("in");
                     $("#"+person+"list").removeClass("out");
@@ -112,6 +128,29 @@ $(function(){
                     $("#btn"+person+"view").val("View");
                 }
             });
+            //This makes a person's name link to their fam div
+            $("#"+person+"link").click(function(e){
+                $("#btnAddEvent").css("visibility","invisible");
+                $("#famDiv").show();
+                $("#eventDiv").hide();
+                $('#btnAddEvent').hide();
+                len= people.length;
+                parent = null;
+                for (i=0;i<len;i++){
+                    $("#"+people[i].name+"div").hide();
+                    if(people[i].spouse.name==person){
+                        parent=people[i].name;
+                    }
+                    for (j=0;j<people[i].children.length;j++){
+                        if (people[i].children[j].name==person){
+                            parent=people[i].name;
+                        }
+                    }
+                }
+                $("#"+parent+"div").show();
+                child=parent;
+            });
+
             $('#monthInputEvent').val('');
             $('#dayInputEvent').val('');
             $('#yearInputEvent').val('');
@@ -146,8 +185,8 @@ $(function(){
                     }
                 }
             if (here){
-            $('#events_table').append('<tr><td id="date">' + month + ' ' + day + '</td><td>' + person
-           + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
+            $('#events_table').append('<tr><td id="date">' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+person+'link" value=" '+person+'\'s ">'
+           + '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
             }
             else{
 
@@ -177,7 +216,7 @@ $(function(){
     };
 
     people.push(person);
-                    persondict=null;
+                persondict=null;
                 here=false;
                 for (i=0;i<people.length;i++){
                     if (person==people[i].name){
@@ -201,9 +240,23 @@ $(function(){
         
     }
 
+
+
+            $("#"+person+"link").click(function(e){
+                $("#btnAddEvent").css("visibility","invisible");
+                $("#famDiv").show();
+                $("#eventDiv").hide();
+                $('#btnAddEvent').hide();
+                len= people.length;
+                for (i=0;i<len;i++){
+                    $("#"+people[i].name+"div").hide();
+                }
+                $("#"+person+"div").show();
+                child=person;
+            });
+
         $("#btn"+person+"view").click(function(e){
             //e.stopPropagation();
-            
             if ($("#"+person+"list").hasClass("out")){
                 $("#"+person+"list").addClass("in");
                 $("#"+person+"list").removeClass("out");
@@ -217,6 +270,7 @@ $(function(){
         });
 
     });
+
 });
 
 function getMonth(month) {
