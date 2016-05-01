@@ -51,7 +51,10 @@ $(function(){
         content: $('#popoverAddFamilyMember').html(),
         placement: 'auto',
         callback: function() { 
-            $('.datepicker-fammember').datepicker(); 
+            $('.datepicker-fammember').datepicker({
+                changeYear: true,
+                yearRange: "-100:+0"
+            }); 
         } 
     });
 

@@ -85,7 +85,10 @@ $(function(){
         placement: 'bottom',
         content: $('#popoverAddEvent').html(),
         callback: function() { 
-            $('.datepicker').datepicker(); 
+            $('.datepicker').datepicker({
+                changeYear: true,
+                yearRange: "-100:+0"
+            }); 
         } 
 	});
 

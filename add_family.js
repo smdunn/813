@@ -52,7 +52,10 @@ $(function(){
         content: $('#popoverAddFamily').html(),
         placement: 'auto',
         callback: function() { 
-            $('.datepicker-child').datepicker(); 
+            $('.datepicker-child').datepicker({
+                changeYear: true,
+                yearRange: "-100:+0"
+            }); 
         } 
     });
     $(document).on('click', '#btnOkFam', function(){
