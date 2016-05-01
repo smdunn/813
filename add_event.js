@@ -70,6 +70,13 @@ wishlists.push("Techcash");
 wishlists.push("Notebooks");
 wishlists.push("Caligraphy Pens");
 
+var tmp = $.fn.popover.Constructor.prototype.show;
+$.fn.popover.Constructor.prototype.show = function () {
+  tmp.call(this);
+  if (this.options.callback) {
+    this.options.callback();
+  }
+}
 
 $(function(){
 	$('#btnAddEvent').popover({
@@ -77,6 +84,9 @@ $(function(){
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
         content: $('#popoverAddEvent').html(),
+        callback: function() { 
+            $('.datepicker').datepicker(); 
+        } 
 	});
 
     $(document).on("click", ".close" , function(){
@@ -151,9 +161,6 @@ $(function(){
                 child=parent;
             });
 
-            $('#monthInputEvent').val('');
-            $('#dayInputEvent').val('');
-            $('#yearInputEvent').val('');
             $('#inputEvent').val('');
 
             $(this).parents(".popover").popover('hide');

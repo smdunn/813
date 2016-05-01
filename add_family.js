@@ -62,6 +62,7 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
+        console.log(month, day, year);
         if (lchild.length > 0) {
     persondict=null;
                 here=false;
