@@ -53,7 +53,9 @@ $(function(){
         callback: function() { 
             $('.datepicker-fammember').datepicker({
                 changeYear: true,
-                yearRange: "-100:+0"
+                yearRange: "-100:+0",
+                changeMonth: true,
+                showButtonPanel: true
             }); 
         } 
     });
