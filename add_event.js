@@ -147,6 +147,7 @@ $(function(){
                     }
                 }
                 $("#"+parent+"div").show();
+                child=parent;
             });
 
             $('#monthInputEvent').val('');
@@ -248,6 +249,7 @@ $(function(){
                     $("#"+people[i].name+"div").hide();
                 }
                 $("#"+person+"div").show();
+                child=person;
             });
 
         $("#btn"+person+"view").click(function(e){
