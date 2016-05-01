@@ -72,7 +72,7 @@ $(function(){
                     }
                 }
             if (here){
-                          $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1."+persondict.wishlist[0]+"<br>2."+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+                          $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
             }
             else{
 
@@ -110,7 +110,7 @@ $(function(){
                         here=true;
                     }
                 }
-                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1."+persondict.wishlist[0]+"<br>2."+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
             }
             $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
 
