@@ -56,7 +56,9 @@ $(function(){
         html: true,
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
-        content: function(){ return $('#popoverAddEvent').html();},
+
+        content: function() { return $('#popoverAddEvent').html(); } ,
+
         callback: function() { 
             $('.datepicker').datepicker({
                 changeYear: true,
@@ -140,6 +142,7 @@ $(function(){
                 $("#famDiv").show();
                 $("#eventDiv").hide();
                 $('#btnAddEvent').hide();
+                $('#popoverAddEvent').hide();
                 len= people.length;
                 parent = null;
                 for (i=0;i<len;i++){
@@ -254,6 +257,7 @@ $(function(){
                 $("#famDiv").show();
                 $("#eventDiv").hide();
                 $('#btnAddEvent').hide();
+                $('#popoverAddEvent').hide();
                 len= people.length;
                 for (i=0;i<len;i++){
                     $("#"+people[i].name+"div").hide();
