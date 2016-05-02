@@ -71,8 +71,17 @@ $(function(){
         var year = eventDate.getFullYear();
 
         // Show wishlist request was sent
-        $( "#dialog" ).dialog();
-        
+        $( "#dialog" ).dialog({
+            open: function() {
+                $(this).closest(".ui-dialog")
+                .find(".ui-dialog-titlebar-close")
+                .removeClass("ui-dialog-titlebar-close")
+                .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
+            },
+            draggable: false,
+            resizable: false
+        });
+
         if (lchild.length > 0) {
     persondict=null;
                 here=false;
