@@ -46,6 +46,8 @@ wishlists.push("Caligraphy Pens");
 
 
 $(function(){
+
+
     $('#btnAddFamily').popover({
         html: true,
         title: 'Add Child<a class="close" href="#");">&times;</a>',
@@ -67,6 +69,10 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
+
+        // Show wishlist request was sent
+        $( "#dialog" ).dialog();
+
         if (lchild.length > 0) {
     persondict=null;
                 here=false;
