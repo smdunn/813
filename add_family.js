@@ -51,6 +51,7 @@ $(function(){
         title: 'Add Child<a class="close" href="#");">&times;</a>',
         content: $('#popoverAddFamily').html(),
         placement: 'auto',
+        // container: 'body',
         callback: function() { 
             $('.datepicker-child').datepicker({
                 changeYear: true,
@@ -69,61 +70,56 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
+        var email = $('#emailfam').val();
 
-        // Show wishlist request was sent
-        $( "#dialog" ).dialog({
-            open: function() {
-                $(this).closest(".ui-dialog")
-                .find(".ui-dialog-titlebar-close")
-                .removeClass("ui-dialog-titlebar-close")
-                .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
-            },
-            draggable: false,
-            resizable: false
-        });
+        
+        // check that fields in popover filled in
+        if (lchild.length > 0 && !isNaN(eventDate.getMonth()) && email.length > 0) {
+            // Show wishlist request was sent
+            $( "#dialog" ).dialog({
+                open: function() {
+                    $(this).closest(".ui-dialog")
+                    .find(".ui-dialog-titlebar-close")
+                    .removeClass("ui-dialog-titlebar-close")
+                    .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
+                },
+                draggable: false,
+                resizable: false
+            });
 
-        if (lchild.length > 0) {
-    persondict=null;
-                here=false;
-                for (i=0;i<people.length;i++){
-                    if (lchild==people[i].name){
-                        persondict=people[i];
-                        here=true;
+            persondict=null;
+            here=false;
+            for (i=0;i<people.length;i++){
+                if (lchild==people[i].name){
+                    persondict=people[i];
+                    here=true;
+                }
+            }
+            if (here){
+                
+            } else{
+                list=[];
+                ran= Math.random();
+                if (ran<.2){
+                    list.push("Waiting for Response");
+                    list.push("...");
+                    list.push("...");
+                } else{
+                    for (i=0;i<3;i++){
+                        ran=Math.random()*length;
+                        list.push(wishlists[ran]);
                     }
                 }
-            if (here){
-                $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
-                    persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+
-                    lchild+"kids'></div></ul></li></div></ul>");
-            }
-            else{
+                var person = {
+                    name: $('#namefam').val(), 
+                    email: $('#emailfam').val(), 
+                    events: {'Birthday': [month, day, year]}, 
+                    wishlist: list, 
+                    spouse: '', 
+                    children: []
+                };
 
-
-
-                    list=[];
-    ran= Math.random();
-    if (ran<.2){
-        list.push("Waiting for Response");
-        list.push("...");
-        list.push("...");
-        }
-        else{
-            for (i=0;i<3;i++){
-            ran=Math.random()*length;
-            list.push(wishlists[ran]);
-        }
-
-        }
-    var person = {
-        name: $('#namefam').val(), 
-        email: $('#emailfam').val(), 
-        events: {'Birthday': [month, day, year]}, 
-        wishlist: list, 
-        spouse: '', 
-        children: []
-    };
-
-    people.push(person);
+                people.push(person);
                     persondict=null;
                 here=false;
                 for (i=0;i<people.length;i++){
@@ -132,10 +128,10 @@ $(function(){
                         here=true;
                     }
                 }
-                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
-                    persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+
-                    "</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
             }
+            $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
+                persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+
+                lchild+"kids'></div></ul></li></div></ul>");
             $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
             $("#btnAddFamily").popover('hide');
         }

@@ -64,7 +64,7 @@
 
 	<div id='familyBtns'>
 		<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
-		<input type="button" class="btn btn-default" id="btnEditFamily" value="Edit Family"></input>
+		<input type="button" class="btn btn-default" id="btnDeleteFamily" value="Delete Family"></input>
 	</div>
 
 </div>
@@ -86,8 +86,9 @@
 	</div>
 </div>
 
-<div id="popoverEditFamily" class="hide">
-	<h2>Edit Family</h2><br>
+<div id="popoverDeleteFamily" class="popover hide">
+	<h4>Are you sure you want to delete this whole family?</h4><br>
+	<input type='button' class='btn btn-default' id='btnDeleteFamilyConfirm' value='Yes'></input>
 </div>
 
 <script type="text/javascript">

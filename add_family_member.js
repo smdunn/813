@@ -59,12 +59,6 @@ $(function(){
             }); 
         } 
     });
-    $('#btnEditFamily').popover({
-        html: true,
-        title: 'Edit Family<a class="close" href="#");">&times;</a>',
-        content: $('#popoverEditFamily').html(),
-        placement: 'left',
-    });
 
     $(document).on('click', '#btnOkFamMember', function(){ //
         var grandchild = $('#namefammember').val();
@@ -73,20 +67,23 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
-
-        // Show wishlist request was sent
-        $( "#dialog" ).dialog({
-            open: function() {
-                $(this).closest(".ui-dialog")
-                .find(".ui-dialog-titlebar-close")
-                .removeClass("ui-dialog-titlebar-close")
-                .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
-            },
-            draggable: false,
-            resizable: false
-        });
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
-        if (grandchild.length > 0) {
+        var email = $('#emailfammember').val();
+
+        // check that all fields in popover filled in
+        if (grandchild.length > 0 && !isNaN(eventDate.getMonth()) && email.length > 0 && !(!relationship)) {
+            // Show wishlist request was sent
+            $( "#dialog" ).dialog({
+                open: function() {
+                    $(this).closest(".ui-dialog")
+                    .find(".ui-dialog-titlebar-close")
+                    .removeClass("ui-dialog-titlebar-close")
+                    .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
+                },
+                draggable: false,
+                resizable: false
+            });
+
             if (relationship=="spouse"){
                 len= people.length;
                 for (i=0;i<len;i++){

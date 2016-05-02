@@ -43,13 +43,15 @@ wishlists.push("Techcash");
 wishlists.push("Notebooks");
 wishlists.push("Caligraphy Pens");
 
-var tmp = $.fn.popover.Constructor.prototype.show;
+$(document).ready(function(){
+    var tmp = $.fn.popover.Constructor.prototype.show;
 $.fn.popover.Constructor.prototype.show = function () {
   tmp.call(this);
   if (this.options.callback) {
     this.options.callback();
   }
 }
+})
 
 $(function(){
 	$('#btnAddEvent').popover({
@@ -58,15 +60,13 @@ $(function(){
         placement: 'bottom',
 
         content: function() { return $('#popoverAddEvent').html(); } ,
-
-        callback: function() { 
-            $('.datepicker').datepicker({
+        callback:  function(){$('.datepicker').datepicker({
                 changeYear: true,
                 yearRange: "-100:+0",
                 changeMonth: true,
                 showButtonPanel: true
-            }); 
-        } 
+            }); }
+        
 	});
 
     $(document).on("click", ".close" , function(){
@@ -135,7 +135,7 @@ $(function(){
 
             $("#btn"+person+"delete"+e+"").click(function(evt){
                 //e.stopPropagation();
-                $("#"+person+'tr'+e+"").hide();
+                $("#"+person+'tr'+e+"").remove();
             });
             //This makes a person's name link to their fam div
             $("#"+person+"link"+e+"").click(function(e){
@@ -167,7 +167,7 @@ $(function(){
         }
         
 	});
-    
+
     // when Add Event popover is opened, close Add Child popover
     $(document).on('click', '#btnAddEvent', function() {
         $('#btnAddFamily').popover('hide');
@@ -181,8 +181,9 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
+        var email = $('#emailfam').val();
 
-        if (person.length > 0) {
+        if (person.length > 0 && !isNaN(eventDate.getMonth()) && email.length > 0) {
                 persondict=null;
                 here=false;
                 for (i=0;i<people.length;i++){
@@ -240,7 +241,6 @@ $(function(){
      + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+
      'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+
      '</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
-console.log("foo");
                 $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
 
            
