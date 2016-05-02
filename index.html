@@ -79,9 +79,23 @@
 			<h4>Event</h4>
 			<input id='inputEvent' type='text' placeholder='Event Name'/><br><br>
 			<h4>Event Date:</h4>
-			<input id="monthInputEvent" type="number" min="1" max="12" step="1" placeholder='Month'/>
-    		<input id="dayInputEvent" type="number" min="1" max="31" step="1" placeholder='Day'/>
-    		<input id="yearInputEvent" type="number" min="1900" max="2016" step="1" placeholder='Year'/><br>
+			<select id="monthInputEvent">
+			  <option>January</option>
+			  <option>February</option>
+			  <option>March</option>
+			  <option>April</option>
+			  <option>May</option>
+			  <option>June</option>
+			  <option>July</option>
+			  <option>August</option>
+			  <option>September</option>
+			  <option>October</option>
+			  <option>November</option>
+			  <option>December</option>
+			</select>
+    		<select id="dayInputEvent"></select>
+    		<select id="yearInputEvent"></select><br><br>
+    		<!-- <input id="yearInputEvent" type="number" min="1900" max="2016" step="1" placeholder='Year'/><br> -->
 			<!-- <input type="text" class="datepicker" id="inputDate"><br><br> -->
 			<input type="button" class="btn btn-default" id="btnOkEvent" value="Add"></input>
 		</form>
@@ -194,9 +208,27 @@
 			  </ul>
 			</div> -->
 			<h4>Birthday:</h4>
-			<input id="monthInputFamMember" type="number" min="1" max="12" step="1" placeholder='Month'/>
+			<select id="monthInputFamMember">
+			  <option>January</option>
+			  <option>February</option>
+			  <option>March</option>
+			  <option>April</option>
+			  <option>May</option>
+			  <option>June</option>
+			  <option>July</option>
+			  <option>August</option>
+			  <option>September</option>
+			  <option>October</option>
+			  <option>November</option>
+			  <option>December</option>
+			</select>
+    		<select id="dayInputFamMember"></select>
+    		<select id="yearInputFamMember"></select><br><br>
+
+
+			<!-- <input id="monthInputFamMember" type="number" min="1" max="12" step="1" placeholder='Month'/>
     		<input id="dayInputFamMember" type="number" min="1" max="31" step="1" placeholder='Day'/>
-    		<input id="yearInputFamMember" type="number" min="1900" max="2016" step="1" placeholder='Year'/><br>
+    		<input id="yearInputFamMember" type="number" min="1900" max="2016" step="1" placeholder='Year'/><br> -->
 			<!-- <input type="text" class="datepicker-fammember" id="inputDateFamMember"><br><br> -->
 			<h4>Email</h4>
 			<input id='emailfammember' type='text' placeholder='Email'/><br><br>

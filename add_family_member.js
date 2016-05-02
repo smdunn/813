@@ -48,16 +48,29 @@ $(function(){
     $('#btnAddFamilyMember').popover({
         html: true,
         title: 'Add Family Member<a class="close" href="#");">&times;</a>',
-        content: $('#popoverAddFamilyMember').html(),
+        content: function() { 
+            for (i=1; i <=31; i++){
+                $('#dayInputFamMember').append($('<option>', {
+                    value: i,
+                    text: i
+                }));
+            }
+            for (y=2016; y >= 1900; y--){
+                $('#yearInputFamMember').append($('<option>', {
+                    value: y,
+                    text: y
+                }));
+            }
+            return $('#popoverAddFamilyMember').html(); } ,
         placement: 'auto',
-        callback: function() { 
-            $('.datepicker-fammember').datepicker({
-                changeYear: true,
-                yearRange: "-100:+0",
-                changeMonth: true,
-                showButtonPanel: true
-            }); 
-        } 
+        // callback: function() { 
+        //     $('.datepicker-fammember').datepicker({
+        //         changeYear: true,
+        //         yearRange: "-100:+0",
+        //         changeMonth: true,
+        //         showButtonPanel: true
+        //     }); 
+        // } 
     });
 
     $(document).on('click', '#btnOkFamMember', function(){ //
@@ -67,7 +80,7 @@ $(function(){
         // var month = getMonth(eventDate.getMonth() + 1);
         // var day = eventDate.getDate();
         // var year = eventDate.getFullYear();
-        var month = getMonth($('#monthInputFamMember').val());
+        var month = $('#monthInputFamMember').val();
         var day = $('#dayInputFamMember').val();
         var year = $('#yearInputFamMember').val();
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();

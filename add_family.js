@@ -49,17 +49,30 @@ $(function(){
     $('#btnAddFamily').popover({
         html: true,
         title: 'Add Child<a class="close" href="#");">&times;</a>',
-        content: $('#popoverAddFamily').html(),
+        content: function() { 
+            for (i=1; i <=31; i++){
+                $('#dayInputFam').append($('<option>', {
+                    value: i,
+                    text: i
+                }));
+            }
+            for (y=2016; y >= 1900; y--){
+                $('#yearInputFam').append($('<option>', {
+                    value: y,
+                    text: y
+                }));
+            }
+            return $('#popoverAddFamily').html(); } ,
         placement: 'auto',
         // container: 'body',
-        callback: function() { 
-            $('.datepicker-child').datepicker({
-                changeYear: true,
-                yearRange: "-100:+0",
-                changeMonth: true,
-                showButtonPanel: true
-            }); 
-        } 
+        // callback: function() { 
+        //     $('.datepicker-child').datepicker({
+        //         changeYear: true,
+        //         yearRange: "-100:+0",
+        //         changeMonth: true,
+        //         showButtonPanel: true
+        //     }); 
+        // } 
     });
 
 
@@ -70,7 +83,7 @@ $(function(){
         // var month = getMonth(eventDate.getMonth() + 1);
         // var day = eventDate.getDate();
         // var year = eventDate.getFullYear();
-        var month = getMonth($('#monthInputFam').val());
+        var month = $('#monthInputFam').val();
         var day = $('#dayInputFam').val();
         var year = $('#yearInputFam').val();
         var email = $('#emailfam').val();

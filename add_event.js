@@ -58,14 +58,26 @@ $(function(){
         html: true,
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
-
-        content: function() { return $('#popoverAddEvent').html(); } ,
-        callback:  function(){$('.datepicker').datepicker({
-                changeYear: true,
-                yearRange: "-100:+0",
-                changeMonth: true,
-                showButtonPanel: true
-            }); }
+        content: function() { 
+            for (i=1; i <=31; i++){
+                $('#dayInputEvent').append($('<option>', {
+                    value: i,
+                    text: i
+                }));
+            }
+            for (y=2016; y >= 1900; y--){
+                $('#yearInputEvent').append($('<option>', {
+                    value: y,
+                    text: y
+                }));
+            }
+            return $('#popoverAddEvent').html(); } ,
+        // callback:  function(){$('.datepicker').datepicker({
+        //         changeYear: true,
+        //         yearRange: "-100:+0",
+        //         changeMonth: true,
+        //         showButtonPanel: true
+        //     }); }
         
 	});
 
@@ -79,7 +91,7 @@ $(function(){
         // var month = getMonth(eventDate.getMonth() + 1);
         // var day = eventDate.getDate();
         // var year = eventDate.getFullYear();
-        var month = getMonth($('#monthInputEvent').val());
+        var month = $('#monthInputEvent').val();
         var day = $('#dayInputEvent').val();
         var year = $('#yearInputEvent').val();
         var person = $('#inputPerson').val(); 
