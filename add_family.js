@@ -103,7 +103,7 @@ $(function(){
                     $(this).html(markup);
                 },
                 buttons: [{
-                  text: "Ok",
+                  text: "Okay",
                   click: function() {
                     $( this ).dialog( "close" );
                   }
