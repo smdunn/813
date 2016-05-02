@@ -73,6 +73,18 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
+
+        // Show wishlist request was sent
+        $( "#dialog" ).dialog({
+            open: function() {
+                $(this).closest(".ui-dialog")
+                .find(".ui-dialog-titlebar-close")
+                .removeClass("ui-dialog-titlebar-close")
+                .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
+            },
+            draggable: false,
+            resizable: false
+        });
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         if (grandchild.length > 0) {
             if (relationship=="spouse"){
