@@ -101,7 +101,8 @@ $(function(){
                     grandchilddict=people[i].spouse;
                 }
             }
-                $("#"+child+"div").append("<li><a><h3>"+grandchild+"</h3><div align='left'>1. "+persondict.spouse.wishlist[0]+"<br>2. "+persondict.spouse.wishlist[1]+"<br>3. "+persondict.spouse.wishlist[2]+"</div></a></li>");
+                $("#"+child+"div").append("<li><a><h3>"+grandchild+"</h3><div align='left'>1. "+persondict.spouse.wishlist[0]+"<br>2. "+
+                    persondict.spouse.wishlist[1]+"<br>3. "+persondict.spouse.wishlist[2]+"</div></a></li>");
 
 
             }
@@ -139,11 +140,14 @@ $(function(){
                     grandchilddict=persondict.children[i];
                 }
             }
-                $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3><div align='left'>1. "+grandchilddict.wishlist[0]+"<br>2. "+grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</div></a></li>");
+                $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3><div align='left'>1. "+grandchilddict.wishlist[0]+"<br>2. "+
+                    grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</div></a></li>");
             }
 
-            $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+'link" value=" '+grandchild+'\'s ">'
-               + '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li><div align="left">1. '+grandchilddict.wishlist[0]+'<br>2. '+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</div></li></ul></tr>');
+            $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+'link" value=" '+
+                grandchild+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+
+                grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li><div align="left">1. '+
+                grandchilddict.wishlist[0]+'<br>2. '+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</div></li></ul></tr>');
             $("#btnAddFamilyMember").popover('hide');
         }
 
