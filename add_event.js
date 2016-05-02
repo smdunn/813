@@ -56,7 +56,9 @@ $(function(){
         html: true,
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
+
         content: function() { return $('#popoverAddEvent').html(); } ,
+
         callback: function() { 
             $('.datepicker').datepicker({
                 changeYear: true,
@@ -93,8 +95,10 @@ $(function(){
                 }
 
                 $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+
-                    'link" value=" '+person+'\'s ">'+ '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
-                    +person+'view" value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+                    'link'+e+'" value=" '+person+'\'s ">'+ '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
+                    +person+'view" value="View"></input><input type="button" class="btn btn-default" id="btn'
+                    +person+'view" value="View"></input><input type="button" class="btn btn-default" id="btn'
+                    +person+'delete'+e+'" value="Delete"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
 
                 $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
 
@@ -128,8 +132,13 @@ $(function(){
                     $("#btn"+person+"view").val("View");
                 }
             });
+
+            $("#btn"+person+"delete"+e+"").click(function(evt){
+                //e.stopPropagation();
+                $("#"+person+'link'+e+"").hide();
+            });
             //This makes a person's name link to their fam div
-            $("#"+person+"link").click(function(e){
+            $("#"+person+"link"+e+"").click(function(e){
                 $("#btnAddEvent").css("visibility","invisible");
                 $("#famDiv").show();
                 $("#eventDiv").hide();
@@ -276,6 +285,9 @@ $(function(){
                 $("#btn"+person+"view").val("View");
             }
         });
+
+
+
 
     });
 

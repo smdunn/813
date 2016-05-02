@@ -106,11 +106,14 @@
 #todays_date{
 	font-size: 14px;
 }
-
 .link{
 	border:none;
 	background: none;
 	text-decoration: underline;
+}
+.ui-dialog-titlebar{
+	border: 1px solid #dddddd;
+	background: #C3DBDE;
 }
 
 /*#banner{
