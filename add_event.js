@@ -101,8 +101,9 @@ $(function(){
                         here=true;
                     }
                 }
-                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+'link" value=" '+person+'\'s ">'
+            $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+'link" value=" '+person+'\'s ">'
             + '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+            
             $('#person').val('');
             $('#events_table').tablesorter({ 
                            headers: {
@@ -137,7 +138,7 @@ $(function(){
                 parent = null;
                 for (i=0;i<len;i++){
                     $("#"+people[i].name+"div").hide();
-                    if(people[i].spouse.name==person){
+                    if((people[i].spouse.name==person)||(people[i].name==person)){
                         parent=people[i].name;
                     }
                     for (j=0;j<people[i].children.length;j++){
@@ -221,8 +222,8 @@ $(function(){
                         here=true;
                     }
                 }
-                $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
-     + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
+ //               $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
+ //    + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
            
 }
             $('#events_table').tablesorter({ 
