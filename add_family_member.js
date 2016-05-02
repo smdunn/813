@@ -73,6 +73,18 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
+
+        // Show wishlist request was sent
+        $( "#dialog" ).dialog({
+            open: function() {
+                $(this).closest(".ui-dialog")
+                .find(".ui-dialog-titlebar-close")
+                .removeClass("ui-dialog-titlebar-close")
+                .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
+            },
+            draggable: false,
+            resizable: false
+        });
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         if (grandchild.length > 0) {
             if (relationship=="spouse"){
@@ -150,6 +162,9 @@ $(function(){
                 grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li><div align="left">1. '+
                 grandchilddict.wishlist[0]+'<br>2. '+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</div></li></ul></tr>');
             
+
+
+
             $('select.inputPerson').append('<option value="'+grandchild+'">'+grandchild+'</option>');
 
             $("#btnAddFamilyMember").popover('hide');
