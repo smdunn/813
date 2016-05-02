@@ -95,7 +95,8 @@ $(function(){
                     .find(".ui-dialog-titlebar-close")
                     .removeClass("ui-dialog-titlebar-close")
                     .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
-                    var markup = 'A wishlist request to ' + grandchild + ' was sent!';
+                    var markup = 'You just requested a wishlist from ' + grandchild + '. The wishlist request will be sent to ' +
+                        grandchild + "'s email.";
                     $(this).html(markup);
                 },
                 buttons: [{
@@ -104,6 +105,7 @@ $(function(){
                     $( this ).dialog( "close" );
                   }
                 }],
+                title: "Wishlist Request Sent",
                 modal: true,
                 draggable: false,
                 resizable: false,
