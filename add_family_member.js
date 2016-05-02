@@ -63,15 +63,18 @@ $(function(){
     $(document).on('click', '#btnOkFamMember', function(){ //
         var grandchild = $('#namefammember').val();
         var date = $('#inputDateFamMember').val();
-        var eventDate = new Date(date);
-        var month = getMonth(eventDate.getMonth() + 1);
-        var day = eventDate.getDate();
-        var year = eventDate.getFullYear();
+        // var eventDate = new Date(date);
+        // var month = getMonth(eventDate.getMonth() + 1);
+        // var day = eventDate.getDate();
+        // var year = eventDate.getFullYear();
+        var month = getMonth($('#monthInputFamMember').val());
+        var day = $('#dayInputFamMember').val();
+        var year = $('#yearInputFamMember').val();
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         var email = $('#emailfammember').val();
 
         // check that all fields in popover filled in
-        if (grandchild.length > 0 && !isNaN(eventDate.getMonth()) && email.length > 0 && !(!relationship)) {
+        if (grandchild.length > 0 && email.length > 0 && !(!relationship)) {
             // Show wishlist request was sent
             $( "#dialog" ).dialog({
                 open: function() {
@@ -211,3 +214,43 @@ $(function(){
         $('#btnAddFamily').popover('hide');
     });
 });
+
+function getMonth(month) {
+    if (month == 1) {
+        month = "January";
+    }
+    if (month == 2) {
+        month = "February";
+    }
+    if (month == 3) {
+        month = "March";
+    }
+    if (month == 4) {
+        month = "April";
+    }
+    if (month == 5) {
+        month = "May";
+    }
+    if (month == 6) {
+        month = "June";
+    }
+    if (month == 7) {
+        month = "July";
+    }
+    if (month == 8) {
+        month = "August";
+    }
+    if (month == 9) {
+        month = "September";
+    }
+    if (month == 10) {
+        month = "October";
+    }
+    if (month == 11) {
+        month = "November";
+    }
+    if (month == 12) {
+        month = "December";
+    }
+    return month;
+}

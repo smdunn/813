@@ -76,14 +76,17 @@ $(function(){
 	$(document).on('click', '#btnOkEvent', function(){
         var date = $('#inputDate').val();
         var eventDate = new Date(date);
-        var month = getMonth(eventDate.getMonth() + 1);
-        var day = eventDate.getDate();
-        var year = eventDate.getFullYear();
+        // var month = getMonth(eventDate.getMonth() + 1);
+        // var day = eventDate.getDate();
+        // var year = eventDate.getFullYear();
+        var month = getMonth($('#monthInputEvent').val());
+        var day = $('#dayInputEvent').val();
+        var year = $('#yearInputEvent').val();
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
 
 
-        if (person.length > 0 && !isNaN(eventDate.getMonth()) && e.length > 0) {
+        if (person.length > 0 && e.length > 0) {
 
             persondict=null;
                 here=false;
@@ -177,13 +180,16 @@ $(function(){
     $(document).on('click', '#btnOkFam', function(){
         var person = $("#namefam").val();
         var date = $('#inputDateChild').val();
-        var eventDate = new Date(date);
-        var month = getMonth(eventDate.getMonth() + 1);
-        var day = eventDate.getDate();
-        var year = eventDate.getFullYear();
+        // var eventDate = new Date(date);
+        // var month = getMonth(eventDate.getMonth() + 1);
+        // var day = eventDate.getDate();
+        // var year = eventDate.getFullYear();
+        var month = getMonth($('#monthInputFam').val());
+        var day = $('#dayInputFam').val();
+        var year = $('#yearInputFam').val();
         var email = $('#emailfam').val();
 
-        if (person.length > 0 && !isNaN(eventDate.getMonth()) && email.length > 0) {
+        if (person.length > 0 && email.length > 0) {
                 persondict=null;
                 here=false;
                 for (i=0;i<people.length;i++){
