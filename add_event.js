@@ -193,10 +193,10 @@ $(function(){
                 }
             if (here){
             $('#events_table').append('<tr><td id="date">' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+person+
-                'link" value=" '+person+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
+                'linkBirthday" value=" '+person+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
                 +person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li> '+
                 persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
-            console.log("confuse");
+
 
                 $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
 
@@ -259,7 +259,7 @@ console.log("foo");
 
 
 
-            $("#"+person+"link").click(function(e){
+            $("#"+person+"linkBirthday").click(function(e){
                 $("#btnAddEvent").css("visibility","invisible");
                 $("#famDiv").show();
                 $("#eventDiv").hide();
