@@ -163,12 +163,22 @@ $(function(){
                 grandchilddict.wishlist[1]+'</li><li> '+grandchilddict.wishlist[2]+'</li></ul></div></td></tr>');
 
 
+                        $('#events_table').tablesorter({ 
+                           headers: {
+                    0: {
+                            sorter: 'date'
+                    }
+                },
+            // sort on the first column and third column, order asc 
+                sortList: [[0,0],[2,0]] 
+            }); 
+
             $('select.inputPerson').append('<option value="'+grandchild+'">'+grandchild+'</option>');
 
             $("#btnAddFamilyMember").popover('hide');
         }
 
-            $("#"+grandchild+"link").click(function(e){
+            $("#"+grandchild+"linkBirthday").click(function(e){
                 $("#btnAddEvent").css("visibility","invisible");
                 $("#famDiv").show();
                 $("#eventDiv").hide();
