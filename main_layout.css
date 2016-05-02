@@ -113,7 +113,7 @@
 }
 .ui-dialog-titlebar{
 	border: 1px solid #dddddd;
-	background: #C3DBDE;
+	background: #C3DBDE !important;
 }
 
 /*#banner{
