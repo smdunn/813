@@ -63,6 +63,7 @@ $(function(){
         } 
     });
     $(document).on('click', '#btnOkFam', function(){
+        console.log("please");
         var lchild = $('#namefam').val();
         var date = $('#inputDateChild').val();
         var eventDate = new Date(date);
@@ -83,9 +84,11 @@ $(function(){
                     }
                 }
             if (here){
+
                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
                     persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+
                     lchild+"kids'></div></ul></li></div></ul>");
+             //       $('#inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
             }
             else{
 
@@ -123,6 +126,7 @@ $(function(){
                         here=true;
                     }
                 }
+
                  $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
                     persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+
                     "</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
@@ -137,6 +141,7 @@ $(function(){
             $("#famDiv").show();
             $("#eventDiv").hide();
             $('#btnAddEvent').hide();
+            $('#popoverAddEvent').hide();
             len= people.length;
             for (i=0;i<len;i++){
                 $("#"+people[i].name+"div").hide();

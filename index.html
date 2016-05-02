@@ -21,9 +21,8 @@
 	<!--<script type="text/javascript" src="add_family.js"></script>-->
 	<script type="text/javascript" src="people.js"></script>
 	<script type="text/javascript" src="add_event.js"></script>
-
 	<script type="text/javascript" src="add_family_member.js"></script>
-
+	<script type="text/javascript" src="edit_family.js"></script>
 </head>
 <body>
 
@@ -66,8 +65,10 @@
  		<div id="childappend"> 
 	</div>
 
-
-	<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
+	<div id='familyBtns'>
+		<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
+		<input type="button" class="btn btn-default" id="btnEditFamily" value="Edit Family"></input>
+	</div>
 
 </div>
 	</div>
@@ -75,7 +76,9 @@
 		<h2>Add Event</h2><br>
 		<form>
 			<h4>Person:</h4>
-			<input id='inputPerson' type='text' placeholder='Name'/><br><br>
+			<select id='inputPerson' class="inputPerson" name="peeps">
+			</select><br><br>
+<!-- 			<input id='inputPerson' type='text' placeholder='Name'/><br><br> -->
 			<h4>Event</h4>
 			<input id='inputEvent' type='text' placeholder='Event Name'/><br><br>
 			<h4>Event Date:</h4>
@@ -86,7 +89,12 @@
 	</div>
 </div>
 
+<div id="popoverEditFamily" class="hide">
+	<h2>Edit Family</h2><br>
+</div>
+
 <script type="text/javascript">
+
 
 	function handleClick(evt) {
   		var node = evt.target || evt.srcElement;
@@ -203,7 +211,7 @@ $( "#header" ).load( "header.html" );
             return /^[0-9]{1,2} [a-zA-Z]+, [0-9]{1,2}:[0-9]{1,2}$/.test(s);
         },
         format: function(s) {
-            s = s.replace(/January/,1).replace(/February/,2).replace(/March/,3).replace(/April/,4).replace(/May/,5).replace(/June/,6).replace(/July/,7).replace(/August/,8).replace(/September/,9).replace(/October/,10).replace(/November/,11).replace(/December/,12);
+            s = s.replace(/January/,9).replace(/February/,10).replace(/March/,11).replace(/April/,12).replace(/May/,1).replace(/June/,2).replace(/July/,3).replace(/August/,4).replace(/September/,5).replace(/October/,6).replace(/November/,7).replace(/December/,8);
             s = s.split(" ");
             s = s[0]*1000000+s[1]*10000;
 
