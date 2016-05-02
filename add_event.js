@@ -94,11 +94,11 @@ $(function(){
                     }
                 }
 
-                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+
+                $('#events_table').append('<tr id="' +person+
+                    'tr'+e+'"><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+
                     'link'+e+'" value=" '+person+'\'s ">'+ '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
-                    +person+'view" value="View"></input><input type="button" class="btn btn-default" id="btn'
-                    +person+'view" value="View"></input><input type="button" class="btn btn-default" id="btn'
-                    +person+'delete'+e+'" value="Delete"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+                    +person+'view'+e+'" value="View"></input><input type="button" class="btn btn-default" id="btn'
+                    +person+'delete'+e+'" value="Delete"></input><div class="collapse out" id="'+person+'list'+e+'"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
 
                 $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
 
@@ -119,23 +119,23 @@ $(function(){
                 sortList: [[0,0],[2,0]] 
             }); 
             //$("#"+person+"list").css("visibility","hidden");
-            $("#btn"+person+"view").click(function(e){
+            $("#btn"+person+"view"+e+"").click(function(evt){
                 //e.stopPropagation();
-                if ($("#"+person+"list").hasClass("out")){
-                    $("#"+person+"list").addClass("in");
-                    $("#"+person+"list").removeClass("out");
-                    $("#btn"+person+"view").val("Hide");
+                if ($("#"+person+"list"+e+"").hasClass("out")){
+                    $("#"+person+"list"+e+"").addClass("in");
+                    $("#"+person+"list"+e+"").removeClass("out");
+                    $("#btn"+person+"view"+e+"").val("Hide");
                 }
                 else{
-                    $("#"+person+"list").addClass("out");
-                    $("#"+person+"list").removeClass("in");
-                    $("#btn"+person+"view").val("View");
+                    $("#"+person+"list"+e+"").addClass("out");
+                    $("#"+person+"list"+e+"").removeClass("in");
+                    $("#btn"+person+"view"+e+"").val("View");
                 }
             });
 
             $("#btn"+person+"delete"+e+"").click(function(evt){
                 //e.stopPropagation();
-                $("#"+person+'link'+e+"").hide();
+                $("#"+person+'tr'+e+"").hide();
             });
             //This makes a person's name link to their fam div
             $("#"+person+"link"+e+"").click(function(e){
