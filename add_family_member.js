@@ -85,9 +85,10 @@ $(function(){
         var year = $('#yearInputFamMember').val();
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         var email = $('#emailfammember').val();
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
         // check that all fields in popover filled in
-        if (grandchild.length > 0 && email.length > 0 && !(!relationship)) {
+        if (grandchild.length > 0 && email.length > 0 && !(!relationship) && emailReg.test(email)) {
             // Show wishlist request was sent
             $( "#dialog" ).dialog({
                 open: function() {

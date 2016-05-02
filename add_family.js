@@ -87,10 +87,11 @@ $(function(){
         var day = $('#dayInputFam').val();
         var year = $('#yearInputFam').val();
         var email = $('#emailfam').val();
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
         
         // check that fields in popover filled in
-        if (lchild.length > 0 && email.length > 0) {
+        if (lchild.length > 0 && email.length > 0 && emailReg.test(email)) {
             // Show wishlist request was sent
             $( "#dialog" ).dialog({
                 open: function() {

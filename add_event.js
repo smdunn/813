@@ -193,8 +193,9 @@ $(function(){
         var day = $('#dayInputFam').val();
         var year = $('#yearInputFam').val();
         var email = $('#emailfam').val();
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
-        if (person.length > 0 && email.length > 0) {
+        if (person.length > 0 && email.length > 0 && emailReg.test(email)) {
                 persondict=null;
                 here=false;
                 for (i=0;i<people.length;i++){
