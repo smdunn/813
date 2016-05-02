@@ -181,8 +181,9 @@ $(function(){
         var month = getMonth(eventDate.getMonth() + 1);
         var day = eventDate.getDate();
         var year = eventDate.getFullYear();
+        var email = $('#emailfam').val();
 
-        if (person.length > 0) {
+        if (person.length > 0 && !isNaN(eventDate.getMonth()) && email.length > 0) {
                 persondict=null;
                 here=false;
                 for (i=0;i<people.length;i++){
