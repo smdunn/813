@@ -94,10 +94,14 @@ $(function(){
 
                 $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+
                     'link" value=" '+person+'\'s ">'+ '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
-                    +person+'view"  value="View"><button type="button" class="btn btn-default">
-  <span class="glyphicon glyphicon-delete"></span>
-</button></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'
-                    +persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+                    +person+'view" value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+
+
+
+
+ // <span class="glyphicon glyphicon-delete"></span>
+//</button></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'
+  //                  +persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
 
             $('#person').val('');
             $('#events_table').tablesorter({ 
