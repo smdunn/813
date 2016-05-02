@@ -56,7 +56,7 @@ $(function(){
         html: true,
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
-        content: $('#popoverAddEvent').html(),
+        content: function(){ return $('#popoverAddEvent').html();},
         callback: function() { 
             $('.datepicker').datepicker({
                 changeYear: true,
