@@ -96,6 +96,7 @@ $(function(){
                     'link" value=" '+person+'\'s ">'+ '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
                     +person+'view" value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
 
+                $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
 
 
 
@@ -186,6 +187,9 @@ $(function(){
                 'link" value=" '+person+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
                 +person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li> '+
                 persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+
+                $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
+
             }
             else{
 
@@ -226,6 +230,8 @@ $(function(){
      + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+
      'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+
      '</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
+
+                $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
 
            
 }
