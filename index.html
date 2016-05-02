@@ -18,9 +18,8 @@
 	<!--<script type="text/javascript" src="add_family.js"></script>-->
 	<script type="text/javascript" src="people.js"></script>
 	<script type="text/javascript" src="add_event.js"></script>
-
 	<script type="text/javascript" src="add_family_member.js"></script>
-
+	<script type="text/javascript" src="edit_family.js"></script>
 </head>
 <body>
 
@@ -59,8 +58,10 @@
  		<div id="childappend"> 
 	</div>
 
-
-	<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
+	<div id='familyBtns'>
+		<input type="button" class="btn btn-default" id="btnAddFamilyMember" value="Add Family Member"></input>
+		<input type="button" class="btn btn-default" id="btnEditFamily" value="Edit Family"></input>
+	</div>
 
 </div>
 	</div>
@@ -79,7 +80,12 @@
 	</div>
 </div>
 
+<div id="popoverEditFamily" class="hide">
+	<h2>Edit Family</h2><br>
+</div>
+
 <script type="text/javascript">
+
 
 	function handleClick(evt) {
   		var node = evt.target || evt.srcElement;

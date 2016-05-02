@@ -75,6 +75,15 @@
 	z-index: 0;
 }
 #btnAddFamilyMember{
+	display: block;
+	width: 152px;
+}
+#btnEditFamily{
+	display: block;
+	top: 10px;
+	width: 152px;
+}
+#familyBtns{
 	position: relative;
 	float: right;
 }
