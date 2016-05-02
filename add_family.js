@@ -98,9 +98,20 @@ $(function(){
                     .find(".ui-dialog-titlebar-close")
                     .removeClass("ui-dialog-titlebar-close")
                     .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
+                    var markup = 'A wishlist request to ' + lchild + ' was sent!';
+                    $(this).html(markup);
                 },
+                buttons: [{
+                  text: "Ok",
+                  click: function() {
+                    $( this ).dialog( "close" );
+                  }
+                }],
+                modal: true,
                 draggable: false,
-                resizable: false
+                resizable: false,
+                width: 400,
+                height: 250,
             });
 
             persondict=null;

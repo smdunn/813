@@ -119,6 +119,14 @@
 #btnDeleteFamily{
 	top: 10px;
 }
+.ui-widget{
+	font-family: Verdana, Helvetica, Sans-Serif !important;
+	font-size:18px !important;
+}
+.ui-dialog-buttonset{
+	font-family: Verdana, Helvetica, Sans-Serif !important;
+	font-size:18px !important;
+}
 
 /*#banner{
 	background-color:#f499b4;

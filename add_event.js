@@ -72,13 +72,6 @@ $(function(){
                 }));
             }
             return $('#popoverAddEvent').html(); } ,
-        // callback:  function(){$('.datepicker').datepicker({
-        //         changeYear: true,
-        //         yearRange: "-100:+0",
-        //         changeMonth: true,
-        //         showButtonPanel: true
-        //     }); }
-        
 	});
 
     $(document).on("click", ".close" , function(){
