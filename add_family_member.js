@@ -175,7 +175,7 @@ $(function(){
             $("#btnAddFamilyMember").popover('hide');
         }
 
-            $("#"+grandchild+"link").click(function(e){
+            $("#"+grandchild+"linkBirthday").click(function(e){
                 $("#btnAddEvent").css("visibility","invisible");
                 $("#famDiv").show();
                 $("#eventDiv").hide();
