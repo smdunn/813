@@ -135,7 +135,7 @@ $(function(){
 
             $("#btn"+person+"delete"+e+"").click(function(evt){
                 //e.stopPropagation();
-                $("#"+person+'tr'+e+"").hide();
+                $("#"+person+'tr'+e+"").remove();
             });
             //This makes a person's name link to their fam div
             $("#"+person+"link"+e+"").click(function(e){
