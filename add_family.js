@@ -65,16 +65,19 @@ $(function(){
 
     $(document).on('click', '#btnOkFam', function(){
         var lchild = $('#namefam').val();
-        var date = $('#inputDateChild').val();
-        var eventDate = new Date(date);
-        var month = getMonth(eventDate.getMonth() + 1);
-        var day = eventDate.getDate();
-        var year = eventDate.getFullYear();
+        // var date = $('#inputDateChild').val();
+        // var eventDate = new Date(date);
+        // var month = getMonth(eventDate.getMonth() + 1);
+        // var day = eventDate.getDate();
+        // var year = eventDate.getFullYear();
+        var month = getMonth($('#monthInputFam').val());
+        var day = $('#dayInputFam').val();
+        var year = $('#yearInputFam').val();
         var email = $('#emailfam').val();
 
         
         // check that fields in popover filled in
-        if (lchild.length > 0 && !isNaN(eventDate.getMonth()) && email.length > 0) {
+        if (lchild.length > 0 && email.length > 0) {
             // Show wishlist request was sent
             $( "#dialog" ).dialog({
                 open: function() {
@@ -142,6 +145,7 @@ $(function(){
             $("#famDiv").show();
             $("#eventDiv").hide();
             $('#btnAddEvent').hide();
+            $('#popoverAddEvent').hide();
             len= people.length;
             for (i=0;i<len;i++){
                 $("#"+people[i].name+"div").hide();

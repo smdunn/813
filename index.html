@@ -79,7 +79,10 @@
 			<h4>Event</h4>
 			<input id='inputEvent' type='text' placeholder='Event Name'/><br><br>
 			<h4>Event Date:</h4>
-			<input type="text" class="datepicker" id="inputDate"><br><br>
+			<input id="monthInputEvent" type="number" min="1" max="12" step="1" placeholder='Month'/>
+    		<input id="dayInputEvent" type="number" min="1" max="31" step="1" placeholder='Day'/>
+    		<input id="yearInputEvent" type="number" min="1900" max="2016" step="1" placeholder='Year'/><br>
+			<!-- <input type="text" class="datepicker" id="inputDate"><br><br> -->
 			<input type="button" class="btn btn-default" id="btnOkEvent" value="Add"></input>
 		</form>
 	</div>
@@ -191,7 +194,10 @@
 			  </ul>
 			</div> -->
 			<h4>Birthday:</h4>
-			<input type="text" class="datepicker-fammember" id="inputDateFamMember"><br><br>
+			<input id="monthInputFamMember" type="number" min="1" max="12" step="1" placeholder='Month'/>
+    		<input id="dayInputFamMember" type="number" min="1" max="31" step="1" placeholder='Day'/>
+    		<input id="yearInputFamMember" type="number" min="1900" max="2016" step="1" placeholder='Year'/><br>
+			<!-- <input type="text" class="datepicker-fammember" id="inputDateFamMember"><br><br> -->
 			<h4>Email</h4>
 			<input id='emailfammember' type='text' placeholder='Email'/><br><br>
 			<input type="button" class="btn btn-default" id="btnOkFamMember" value="Add"></input>
