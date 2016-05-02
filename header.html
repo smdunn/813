@@ -5,10 +5,10 @@
   	<link rel="stylesheet" href="main_layout.css"/>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+	<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
 	<!-- jQuery library -->
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
-
+	<script type="text/javascript" src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script type='text/javascript'> 
@@ -60,9 +60,7 @@
 			<h4>Child's Name:</h4>
 			<input id='namefam' type='text' placeholder='Name'/><br><br>
 			<h4>Child's Birthdate:</h4>
-			<input id='monthfam' type='number' min='1' max='12' step='1' placeholder='Month'/>
-			<input id='dayfam' type='number' min='1' max='31' step='1' placeholder='Day'/>
-			<input id='yearfam' type='number' min='1900' max='2016' step='1' placeholder='Year'/><br><br>
+			<input type="text" class="datepicker-child" id="inputDateChild"><br><br>
 			<h4>Child's Email</h4>
 			<input id='emailfam' type='text' placeholder='Email'/><br><br>
 			<input type="button" class="btn btn-default" id="btnOkFam" value="Add"></input>

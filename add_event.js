@@ -1,30 +1,3 @@
-// $(function() {
-//     $("#add_event").click(function() {
-//         $("#dialogAddEvent").show();
-//     });
-//     $("#addEventOk").click(function() {
-//         $("#dialogAddEvent").hide();
-//         var month = $('#monthInputEvent').val();
-//         var day = $('#dayInputEvent').val();
-//         var person = $('#person').val();
-//         var e = $('#event').val();
-//         $('#events_table tr.add_event_row').before('<tr class="border"><td class="date">' + month + day + '</td><td class="event">' + person
-//            + '\'s ' + e + '</td><td class="wishlist"><input type="button" id="view_wishlist" value="View"></input></td>)</tr>');
-//         $('#person').val('');
-//         $('#monthInputEvent').val('');
-//         $('#dayInputEvent').val('');
-//         $('#yearInputEvent').val('');
-//         $('#event').val('');
-//     });
-//     $('#addEventCancel').click(function() {
-//         $("#dialogAddEvent").hide();
-//         $('#person').val('');
-//         $('#monthInputEvent').val('');
-//         $('#dayInputEvent').val('');
-//         $('#yearInputEvent').val('');
-//         $('#event').val('');
-//     });
-// });
 wishlists=[];
 wishlists.push("Patagonia Fleece");
 wishlists.push("Rainboots");
@@ -70,6 +43,13 @@ wishlists.push("Techcash");
 wishlists.push("Notebooks");
 wishlists.push("Caligraphy Pens");
 
+var tmp = $.fn.popover.Constructor.prototype.show;
+$.fn.popover.Constructor.prototype.show = function () {
+  tmp.call(this);
+  if (this.options.callback) {
+    this.options.callback();
+  }
+}
 
 $(function(){
 	$('#btnAddEvent').popover({
@@ -77,6 +57,14 @@ $(function(){
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
         content: $('#popoverAddEvent').html(),
+        callback: function() { 
+            $('.datepicker').datepicker({
+                changeYear: true,
+                yearRange: "-100:+0",
+                changeMonth: true,
+                showButtonPanel: true
+            }); 
+        } 
 	});
 
     $(document).on("click", ".close" , function(){
@@ -87,9 +75,11 @@ $(function(){
         var date = $('#inputDate').val();
         var eventDate = new Date(date);
         var month = getMonth(eventDate.getMonth() + 1);
-        var day = eventDate.getDate() + 1;
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
         var person = $('#inputPerson').val(); 
         var e = $('#inputEvent').val();
+
 
         if (person.length > 0 && !isNaN(eventDate.getMonth()) && e.length > 0) {
 
@@ -101,9 +91,12 @@ $(function(){
                         here=true;
                     }
                 }
-            $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+'link" value=" '+person+'\'s ">'
-            + '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
-            
+
+                $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+
+                    'link" value=" '+person+'\'s ">'+ '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
+                    +person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li>'
+                    +persondict.wishlist[1]+' </li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+
             $('#person').val('');
             $('#events_table').tablesorter({ 
                            headers: {
@@ -151,9 +144,6 @@ $(function(){
                 child=parent;
             });
 
-            $('#monthInputEvent').val('');
-            $('#dayInputEvent').val('');
-            $('#yearInputEvent').val('');
             $('#inputEvent').val('');
 
             $(this).parents(".popover").popover('hide');
@@ -169,9 +159,11 @@ $(function(){
     // when child is added add their birthday to upcoming events
     $(document).on('click', '#btnOkFam', function(){
         var person = $("#namefam").val();
-        var month= $('#monthfam').val();
-        var day= $("#dayfam").val();
-        var year = $('#yearfam').val();
+        var date = $('#inputDateChild').val();
+        var eventDate = new Date(date);
+        var month = getMonth(eventDate.getMonth() + 1);
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
 
         if (person.length > 0) {
                 persondict=null;
@@ -183,8 +175,10 @@ $(function(){
                     }
                 }
             if (here){
-            $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td><input type="button" class="link" id="'+person+'link" value=" '+person+'\'s ">'
-           + '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+            $('#events_table').append('<tr><td id="date">' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+person+
+                'link" value=" '+person+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
+                +person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li> '+
+                persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
             }
             else{
 
@@ -207,8 +201,6 @@ $(function(){
         email: $('#emailfam').val(), 
         events: {'Birthday': [month, day, year]}, 
         wishlist: list, 
-        
-        
         spouse: '', 
         children: []
     };
@@ -222,8 +214,12 @@ $(function(){
                         here=true;
                     }
                 }
- //               $('#events_table').append('<tr><td id="date">' + getMonth(month) + ' ' + day + '</td><td>' + person
- //    + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+'</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
+
+                $('#events_table').append('<tr><td id="date">' + month + ' ' + day + '</td><td>' + person
+     + '\'s ' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'+person+
+     'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+
+     '</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
+
            
 }
             $('#events_table').tablesorter({ 

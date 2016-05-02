@@ -50,9 +50,11 @@ wishlists.push("Caligraphy Pens");
 
 
 $(document).on('click', '#btnOkFam', function(){
-    var b_month = $('#monthfam').val();
-    var b_day = $('#dayfam').val();
-    var b_year = $('#yearfam').val();
+    var date = $('#inputDateChild').val();
+    var eventDate = new Date(date);
+    var b_month = getMonth(eventDate.getMonth() + 1);
+    var b_day = eventDate.getDate();
+    var b_year = eventDate.getFullYear();
     var person= $('#namefam').val(), 
     length= wishlists.length;
     list=[];
@@ -85,8 +87,6 @@ $(document).on('click', '#btnOkFam', function(){
     	email: $('#emailfam').val(), 
     	events: {'Birthday': [b_month, b_day, b_year]}, 
         wishlist: list, 
-        
-    	
     	spouse: '', 
     	children: []
     };

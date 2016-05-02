@@ -49,14 +49,30 @@ $(function(){
         html: true,
         title: 'Add Family Member<a class="close" href="#");">&times;</a>',
         content: $('#popoverAddFamilyMember').html(),
-        placement: 'auto'
+        placement: 'auto',
+        callback: function() { 
+            $('.datepicker-fammember').datepicker({
+                changeYear: true,
+                yearRange: "-100:+0",
+                changeMonth: true,
+                showButtonPanel: true
+            }); 
+        } 
+    });
+    $('#btnEditFamily').popover({
+        html: true,
+        title: 'Edit Family<a class="close" href="#");">&times;</a>',
+        content: $('#popoverEditFamily').html(),
+        placement: 'left',
     });
 
     $(document).on('click', '#btnOkFamMember', function(){ //
         var grandchild = $('#namefammember').val();
-        var month= $('#monthfammember').val();
-        var day= $("#dayfammember").val();
-        var year= $("#yearfammember").val();
+        var date = $('#inputDateFamMember').val();
+        var eventDate = new Date(date);
+        var month = getMonth(eventDate.getMonth() + 1);
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
         var relationship = $('input:radio[name=optradio]').filter(":checked").val();
         if (grandchild.length > 0) {
             if (relationship=="spouse"){
@@ -85,7 +101,8 @@ $(function(){
                     grandchilddict=people[i].spouse;
                 }
             }
-                $("#"+child+"div").append("<li><a><h3>"+grandchild+"</h3>1."+persondict.spouse.wishlist[0]+"<br>2."+persondict.spouse.wishlist[1]+"<br>3. "+persondict.spouse.wishlist[2]+"</a></li>");
+                $("#"+child+"div").append("<li><a><h3>"+grandchild+"</h3><div align='left'>1. "+persondict.spouse.wishlist[0]+"<br>2. "+
+                    persondict.spouse.wishlist[1]+"<br>3. "+persondict.spouse.wishlist[2]+"</div></a></li>");
 
 
             }
@@ -123,11 +140,14 @@ $(function(){
                     grandchilddict=persondict.children[i];
                 }
             }
-                $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3>1."+grandchilddict.wishlist[0]+"<br>2."+grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</a></li>");
+                $('#'+child+"kids").append("<li><a><h3>"+grandchild+"</h3><div align='left'>1. "+grandchilddict.wishlist[0]+"<br>2. "+
+                    grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</div></a></li>");
             }
 
-            $('#events_table').append('<tr><td>' + getMonth(month) + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+'link" value=" '+grandchild+'\'s ">'
-               + '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li>1.'+grandchilddict.wishlist[0]+'<br>2.'+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</li></ul></tr>');
+            $('#events_table').append('<tr><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+'link" value=" '+
+                grandchild+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+
+                grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li><div align="left">1. '+
+                grandchilddict.wishlist[0]+'<br>2. '+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</div></li></ul></tr>');
             $("#btnAddFamilyMember").popover('hide');
         }
 

@@ -44,19 +44,30 @@ wishlists.push("Techcash");
 wishlists.push("Notebooks");
 wishlists.push("Caligraphy Pens");
 
+
 $(function(){
     $('#btnAddFamily').popover({
         html: true,
         title: 'Add Child<a class="close" href="#");">&times;</a>',
         content: $('#popoverAddFamily').html(),
-        placement: 'auto'
+        placement: 'auto',
+        callback: function() { 
+            $('.datepicker-child').datepicker({
+                changeYear: true,
+                yearRange: "-100:+0",
+                changeMonth: true,
+                showButtonPanel: true
+            }); 
+        } 
     });
     $(document).on('click', '#btnOkFam', function(){
         console.log("please");
         var lchild = $('#namefam').val();
-        var month= $('#monthfam').val();
-        var day= $("#dayfam").val();
-        var year= $("#yearfam").val();
+        var date = $('#inputDateChild').val();
+        var eventDate = new Date(date);
+        var month = getMonth(eventDate.getMonth() + 1);
+        var day = eventDate.getDate();
+        var year = eventDate.getFullYear();
         if (lchild.length > 0) {
     persondict=null;
                 here=false;
@@ -67,10 +78,12 @@ $(function(){
                     }
                 }
             if (here){
-                        $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1."+persondict.wishlist[0]+"<br>2."+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
-                        $('.popover-content #inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
-                        console.log("fuckuuuuuu");
 
+                $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
+                    persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+
+                    lchild+"kids'></div></ul></li></div></ul>");
+                    $('.popover-content #inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
+                        console.log("fuckuuuuuu");   
             }
             else{
 
@@ -95,8 +108,6 @@ $(function(){
         email: $('#emailfam').val(), 
         events: {'Birthday': [month, day, year]}, 
         wishlist: list, 
-        
-        
         spouse: '', 
         children: []
     };
@@ -111,13 +122,13 @@ $(function(){
                     }
                 }
 
-                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1."+persondict.wishlist[0]+"<br>2."+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
-                 $('#inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
+                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
+                    persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+
+                    "</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
+                  $('#inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
                  console.log("fuck");
             }
             $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
-
-  
             $("#btnAddFamily").popover('hide');
         }
         $("#famDiv").removeClass("hide");
