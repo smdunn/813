@@ -51,7 +51,7 @@ $(function(){
         title: 'Add Child<a class="close" href="#");">&times;</a>',
         content: $('#popoverAddFamily').html(),
         placement: 'auto',
-        container: 'body',
+        // container: 'body',
         callback: function() { 
             $('.datepicker-child').datepicker({
                 changeYear: true,
@@ -96,9 +96,7 @@ $(function(){
                 }
             }
             if (here){
-                $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
-                    persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+
-                    lchild+"kids'></div></ul></li></div></ul>");
+                
             } else{
                 list=[];
                 ran= Math.random();
@@ -130,11 +128,10 @@ $(function(){
                         here=true;
                     }
                 }
-                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
-                    persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+
-                    "</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
-                 $('#popoverEditFamily').append('<div id="editThisFamDiv"></div>')
             }
+            $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
+                persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+
+                lchild+"kids'></div></ul></li></div></ul>");
             $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
             $("#btnAddFamily").popover('hide');
         }
