@@ -56,7 +56,7 @@ $(function(){
         html: true,
         title: 'Add Event<a class="close" href="#");">&times;</a>',
         placement: 'bottom',
-        content: $('#popoverAddEvent').html(),
+        content: function() { return $('#popoverAddEvent').html();} ,
         callback: function() { 
             $('.datepicker').datepicker({
                 changeYear: true,
@@ -127,6 +127,7 @@ $(function(){
                 $("#famDiv").show();
                 $("#eventDiv").hide();
                 $('#btnAddEvent').hide();
+                $('#popoverAddEvent').hide();
                 len= people.length;
                 parent = null;
                 for (i=0;i<len;i++){
@@ -179,6 +180,8 @@ $(function(){
                 'link" value=" '+person+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
                 +person+'view"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li> '+
                 persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');
+
+            $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
             }
             else{
 
@@ -220,6 +223,7 @@ $(function(){
      'view"  value="View"></input><div class="collapse out" id="'+person+'list"><td></td><td></td><td><ul><li>'+persondict.wishlist[0]+
      '</li><li> '+persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></td></div></td></tr>');
 
+$('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
            
 }
             $('#events_table').tablesorter({ 
@@ -241,6 +245,7 @@ $(function(){
                 $("#famDiv").show();
                 $("#eventDiv").hide();
                 $('#btnAddEvent').hide();
+                $('#popoverAddEvent').hide();
                 len= people.length;
                 for (i=0;i<len;i++){
                     $("#"+people[i].name+"div").hide();

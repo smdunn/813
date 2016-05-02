@@ -82,8 +82,7 @@ $(function(){
                 $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
                     persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+"</div></a><ul><div id='"+
                     lchild+"kids'></div></ul></li></div></ul>");
-                    $('.popover-content #inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
-                        console.log("fuckuuuuuu");   
+             //       $('#inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
             }
             else{
 
@@ -125,8 +124,6 @@ $(function(){
                  $('#childappend').append("<ul><div id='"+lchild+"div'><li><a><h3>"+lchild+"</h3><div align='left'>1. "+
                     persondict.wishlist[0]+"<br>2. "+persondict.wishlist[1]+"<br>3. "+persondict.wishlist[2]+
                     "</div></a><ul><div id='"+lchild+"kids'></div></ul></li></div></ul>");
-                  $('#inputPerson').append('<option value="'+lchild+'">'+lchild+'</option>');
-                 console.log("fuck");
             }
             $('#fams').append('<li><input type="button" class="btn btn-default btn-block fam_btn" id='+lchild+' value='+lchild+'></input></li>');
             $("#btnAddFamily").popover('hide');
@@ -138,6 +135,7 @@ $(function(){
             $("#famDiv").show();
             $("#eventDiv").hide();
             $('#btnAddEvent').hide();
+            $('#popoverAddEvent').hide();
             len= people.length;
             for (i=0;i<len;i++){
                 $("#"+people[i].name+"div").hide();

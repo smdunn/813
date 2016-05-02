@@ -105,6 +105,7 @@ $(function(){
                     persondict.spouse.wishlist[1]+"<br>3. "+persondict.spouse.wishlist[2]+"</div></a></li>");
 
 
+
             }
             else{
                 len= people.length;
@@ -148,6 +149,9 @@ $(function(){
                 grandchild+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'+
                 grandchild+'view"  value="View"></input></td></tr><tr class="collapse out" id="'+grandchild+'list"><td><ul><li><div align="left">1. '+
                 grandchilddict.wishlist[0]+'<br>2. '+grandchilddict.wishlist[1]+'<br>3. '+grandchilddict.wishlist[2]+'</div></li></ul></tr>');
+            
+            $('select.inputPerson').append('<option value="'+grandchild+'">'+grandchild+'</option>');
+
             $("#btnAddFamilyMember").popover('hide');
         }
 
