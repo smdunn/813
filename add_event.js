@@ -108,8 +108,6 @@ $(function(){
                     +person+'view'+e+'" value="View"></input><input type="button" class="btn btn-default" id="btn'
                     +person+'delete'+e+'" value="Delete"></input><div class="collapse out" id="'+person+'list'+e+'"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
 
-                $('select.inputPerson').append('<option value="'+person+'">'+person+'</option>');
-
 
 
  // <span class="glyphicon glyphicon-delete"></span>
@@ -144,6 +142,7 @@ $(function(){
             $("#btn"+person+"delete"+e+"").click(function(evt){
                 //e.stopPropagation();
                 $("#"+person+'tr'+e+"").remove();
+
             });
             //This makes a person's name link to their fam div
             $("#"+person+"link"+e+"").click(function(e){

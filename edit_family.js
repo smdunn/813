@@ -7,30 +7,46 @@ $(function(){
     });
 
     $(document).on('click', '#btnDeleteFamilyConfirm', function(){
+        related=[];
         for (i=0;i<people.length;i++){
             if (people[i].name==child){
+                if (people[i].spouse!=''){
+                related=[people[i], people[i].spouse].concat(people[i].children);
+            }
+            else{
+                related=[people[i]].concat(people[i].children);
+            }
                 $("#"+child+"div").remove();
                 people.splice(i,1);
-                console.log(people);
+              //  console.log(people);
             }
         }
         $("#"+child+"").remove();
-        console.log("here");
+        $("#inputPerson option[value='"+child+"']").remove();
+        console.log(document.getElementById("inputPerson"));
 
+        for (i=0;i<related.length;i++){
+            $('#inputPerson option[value="'+related[i].name+'"]').remove();
+        
+    }
         table = document.getElementById("events_table");
-        console.log(table);
-        console.log(table.rows);
-        list=[];
+       // console.log(table);
+       // console.log(table.rows);
+       list=[];
+       for (b=0;b<related.length;b++){
+        console.log(related);
+        
             for (i = 0; i<table.rows.length; i++) {
                 row=table.rows[i];
                 //iterate through rows
                 //rows would be accessed using the "row" variable assigned in the for loop
-                console.log(row);
-                len= child.length;
+               // console.log(row);
+                len= related[b].name.length;
+                console.log(related[b].name);
                 rightcol=true;
                 for (var x=0;x<len;x++){
-                    if (child[x]==row.id[x]){
-                        console.log(child[x]);
+                    if (related[b].name[x]==row.id[x]){
+                       // console.log(child[x]);
 
                     }else{
                         rightcol=false;
@@ -40,6 +56,7 @@ $(function(){
                     list.push(row.id);
                 }
             }
+        }
         for (y=0;y<list.length;y++){
             $("#"+list[y]+"").detach();
         }

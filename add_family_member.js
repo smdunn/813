@@ -184,7 +184,7 @@ $(function(){
                     grandchilddict.wishlist[1]+"<br>3. "+grandchilddict.wishlist[2]+"</div></a></li>");
             }
 
-            $('#events_table').append('<tr id="' +person+
+            $('#events_table').append('<tr id="' +grandchild+
                     'trbirthday"><td id="date">' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+grandchild+
                 'linkBirthday" value=" '+grandchild+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+grandchild+'col"><input type="button" class="btn btn-default" id="btn'
                 +grandchild+'view"  value="View"></input><div class="collapse out" id="'+grandchild+'list"><ul><li>'+grandchilddict.wishlist[0]+'</li><li> '+
