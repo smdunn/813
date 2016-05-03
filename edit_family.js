@@ -22,8 +22,9 @@ $(function(){
             }
         }
         $("#"+child+"").remove();
+        console.log(people)
         $("#inputPerson option[value='"+child+"']").remove();
-        console.log(document.getElementById("inputPerson"));
+       // console.log(document.getElementById("inputPerson"));
 
         for (i=0;i<related.length;i++){
             $('#inputPerson option[value="'+related[i].name+'"]').remove();
@@ -35,7 +36,11 @@ $(function(){
        list=[];
        for (b=0;b<related.length;b++){
         console.log(related);
-        
+            for (j=0;j<people.length;j++){
+                if (people[j].name==related[b].name){
+                    people.splice(j,1);
+                }
+            }
             for (i = 0; i<table.rows.length; i++) {
                 row=table.rows[i];
                 //iterate through rows
@@ -62,10 +67,12 @@ $(function(){
         }
         list.sort(function(a,b){return b-a});
         for (y=0;y<list.length;y++){
-            // table.deleteRow(list[y]);
-            $("#"+list[y]+"").hide();
+
 
             
+
+            $("#"+list[y]+"").hide();
+
         }
         $("events_table").html(table);
         $("#btnDeleteFamily").popover('hide');
