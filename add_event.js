@@ -104,8 +104,8 @@ $(function(){
 
                 $('#events_table').append('<tr id="' +person+
                     'tr'+e+'"><td>' + month + ' ' + day + '</td><td><input type="button" class="link" id="' +person+
-                    'link'+e+'" value=" '+person+'\'s ">'+ '</input>' + e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
-                    +person+'view'+e+'" value="View"></input><input type="button" class="btn btn-default" id="btn'
+                    'link'+e+'" value="'+person+'\'s">'+ '</input>' + ' '+e + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
+                    +person+'view'+e+'" value="View"></input><input type="button" class="btn btn-danger e_del_btn" id="btn'
                     +person+'delete'+e+'" value="Delete"></input><div class="collapse out" id="'+person+'list'+e+'"><ul><li>'+persondict.wishlist[0]+'</li><li>'+persondict.wishlist[1]+'</li><li>'+persondict.wishlist[2]+'</li></ul></div></td></tr>');
 
 
@@ -206,7 +206,7 @@ $(function(){
             if (here){
             $('#events_table').append('<tr id="' +person+
                     'trbirthday"><td id="date">' + month + ' ' + day + '</td><td><input type="button" class="link" id="'+person+
-                'linkBirthday" value=" '+person+'\'s ">'+ '</input>' + 'Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
+                'linkBirthday" value="'+person+'\'s">'+ '</input>' + ' Birthday' + '</td><td id="'+person+'col"><input type="button" class="btn btn-default" id="btn'
                 +person+'view"  value="View"></input><input type="button" class="btn btn-default" id="btn'
                 +person+'invisible"  value="View"></input><div class="collapse out" id="'+person+'list"><ul><li>'+persondict.wishlist[0]+'</li><li> '+
                 persondict.wishlist[1]+'</li><li> '+persondict.wishlist[2]+'</li></ul></div></td></tr>');

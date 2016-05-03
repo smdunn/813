@@ -125,7 +125,10 @@
 }
 .ui-dialog-buttonset{
 	font-family: Verdana, Helvetica, Sans-Serif !important;
-	font-size:18px !important;
+	/*font-size:18px !important;*/
+}
+.e_del_btn{
+	left: 10px;
 }
 
 /*#banner{

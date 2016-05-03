@@ -104,6 +104,7 @@ $(function(){
                     $(this).html(markup);
                 },
                 buttons: [{
+                    class: 'btn btn-default',
                   text: "Okay",
                   click: function() {
                     $( this ).dialog( "close" );
