@@ -54,16 +54,25 @@ $(function(){
                 }
                 if (rightcol){
                     list.push(row.id);
+                    // console.log("adding");
+                    // console.log(i);
+
                 }
             }
         }
+        list.sort(function(a,b){return b-a});
         for (y=0;y<list.length;y++){
-            $("#"+list[y]+"").detach();
+            // table.deleteRow(list[y]);
+            $("#"+list[y]+"").hide();
+
+            
         }
+        $("events_table").html(table);
         $("#btnDeleteFamily").popover('hide');
         $("#famDiv").hide();
         $("#eventDiv").show();  
         $("#btnAddEvent").show();
+        console.log(people);
 
     });
 });
